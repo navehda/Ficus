@@ -10,33 +10,38 @@ app.set('views', path.join(__dirname, 'views'));
 // Serve static files
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Routes for each HTML page
+// Routes for each EJS page
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'views', 'index.html'));
+    const data = {
+        title: 'Ficus - Sustainable Goods',
+        storeName: 'Ficus Store',
+        category: 'Sustainable and Green Products'
+    };
+    res.render('index'); // Renders views/index.ejs
 });
 
 app.get('/cart', (req, res) => {
-    res.sendFile(path.join(__dirname, 'views', 'cart.html'));
+    res.render('cart'); // Renders views/cart.ejs
 });
 
 app.get('/contact', (req, res) => {
-    res.sendFile(path.join(__dirname, 'views', 'contact.html'));
+    res.render('contact'); // Renders views/contact.ejs
 });
 
 app.get('/faqs', (req, res) => {
-    res.sendFile(path.join(__dirname, 'views', 'faqs.html'));
+    res.render('faqs'); // Renders views/faqs.ejs
 });
 
 app.get('/login', (req, res) => {
-    res.sendFile(path.join(__dirname, 'views', 'login.html'));
+    res.render('login'); // Renders views/login.ejs
 });
 
 app.get('/shop', (req, res) => {
-    res.sendFile(path.join(__dirname, 'views', 'shop.html'));
+    res.render('shop'); // Renders views/shop.ejs
 });
 
 app.get('/single', (req, res) => {
-    res.sendFile(path.join(__dirname, 'views', 'single.html'));
+    res.render('single'); // Renders views/single.ejs
 });
 
 app.listen(port, () => {
