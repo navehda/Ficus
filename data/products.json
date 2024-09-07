@@ -1,0 +1,65 @@
+[
+  {
+    "id": 1,
+    "name": "Eco-Friendly Soap",
+    "description": "A natural, eco-friendly soap bar.",
+    "price": 5.99,
+    "image": "images/products/12.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Reusable Water Bottle",
+    "description": "A reusable water bottle made from recycled materials.",
+    "price": 15.99,
+    "image": "images/products/12.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Eco-Friendly Soap",
+    "description": "A natural, eco-friendly soap bar.",
+    "price": 5.99,
+    "image": "images/products/12.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Reusable Water Bottle",
+    "description": "A reusable water bottle made from recycled materials.",
+    "price": 15.99,
+    "image": "images/products/12.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Eco-Friendly Soap",
+    "description": "A natural, eco-friendly soap bar.",
+    "price": 5.99,
+    "image": "images/products/12.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Reusable Water Bottle",
+    "description": "A reusable water bottle made from recycled materials.",
+    "price": 15.99,
+    "image": "images/products/12.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Eco-Friendly Soap",
+    "description": "A natural, eco-friendly soap bar.",
+    "price": 5.99,
+    "image": "images/products/12.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Reusable Water Bottle",
+    "description": "A reusable water bottle made from recycled materials.",
+    "price": 15.99,
+    "image": "images/products/12.jpg"
+  },
+  {
+    "id": 9,
+    "name": "test44",
+    "price": 44,
+    "description": "44",
+    "image": ""
+  }
+]

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="author" content="SemiColonWeb">
+    <meta name="description" content="Register for an account with Ficus - Sustainable Goods.">
+
+	<!-- Font Imports -->
+	<link rel="stylesheet" href="https://use.typekit.net/aay8rzy.css">
+
+	<!-- Core Style -->
+	<link rel="stylesheet" href="css/style.css">
+
+	<!-- Font Icons -->
+	<link rel="stylesheet" href="css/font-icons.css">
+
+	<!-- Plugins/Components CSS -->
+	<link rel="stylesheet" href="css/swiper.css">
+
+	<!-- Niche Demos -->
+	<link rel="stylesheet" href="/css/skincare.css">
+
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="css/custom.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Document Title -->
+    <title>Register | Ficus - Sustainable Goods</title>
+
+</head>
+
+<body class="stretched">
+
+    <!-- Document Wrapper -->
+    <div id="wrapper">
+
+        <!-- Top Bar -->
+        <div id="top-bar" class="py-3 border-0" style="background: var(--cnvs-color2);">
+            <div class="container text-center color">
+                <div style="font-size: .9375rem;">Get 20% off* your First Order &amp; Free Shipping for purchases above $99</div>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <header id="header" class="header-size-sm" data-sticky-shrink="false" style="border-color: var(--cnvs-color);">
+            <div class="container">
+                <div class="header-row justify-content-lg-between">
+
+                    <nav class="primary-menu top-primary-menu col-lg-5 order-last order-lg-first mobile-menu-off-canvas">
+
+                        <ul class="menu-container">
+                            <li class="menu-item"><a class="menu-link" href="index"><div>Home</div></a></li>
+                            <li class="menu-item"><a class="menu-link" href="shop"><div>Products</div></a></li>
+                            <li class="menu-item"><a class="menu-link" href="shop"><div>FAQs</div></a></li>
+                            <li class="menu-item"><a class="menu-link" href="cart"><div>Cart</div></a></li>
+                            <li class="menu-item d-block d-lg-none"><a class="menu-link" href="contact"><div>Contact</div></a></li>
+                        </ul>
+
+                    </nav><!-- #primary-menu end -->
+
+                    <!-- Logo -->
+                    <div id="logo" class="mx-lg-auto col-lg-2 justify-content-center">
+                        <a class="color fst-italic" href="#">Ficus.</a>
+                    </div>
+
+                    <div class="col-lg-5 d-flex justify-content-end">
+                        <div class="header-misc">
+                            <nav class="primary-menu top-primary-menu me-2 d-none d-lg-block">
+                                <ul class="menu-container">
+                                    <li class="menu-item"><a class="menu-link" href="contact"><div>Contact</div></a></li>
+                                </ul>
+                            </nav>
+
+                            <div class="primary-menu-trigger" data-target=".top-primary-menu">
+                                <button class="cnvs-hamburger" type="button" title="Open Mobile Menu">
+                                    <span class="cnvs-hamburger-box"><span class="cnvs-hamburger-inner"></span></span>
+                                </button>
+                            </div>
+
+                            <!-- Top Account -->
+                            <div class="header-misc-icon me-lg-4">
+                                <a href="login"><i class="bi-person-circle"></i></a>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </header><!-- #header end -->
+
+        <!-- Content -->
+        <section id="content">
+            <div class="content-wrap">
+
+                <div class="container">
+
+                    <div class="row justify-content-center">
+                        <div class="col-md-3">
+                            <form id="register-form" name="register-form" class="mb-0" action="/register" method="post">
+                                <h3 class="text-center fs-2 font-body">Register</h3>
+                                <h3 class="text-center fs-5 font-body">Create your account</h3>
+
+                                <div class="row">
+                                    <div class="col-12 form-group">
+                                        <input type="text" id="username" name="username" placeholder="Username" class="form-control rounded-0 bg-color-2" required>
+                                    </div>
+
+                                    <div class="col-12 form-group">
+                                        <input type="password" id="password" name="password" placeholder="Password" class="form-control rounded-0 bg-color-2" required>
+                                    </div>
+
+                                    <div class="col-12 form-group text-center">
+                                        <button class="button text-light m-0 w-100" id="register-form-submit" name="register-form-submit" value="register">Register</button>
+                                    </div>
+                                </div>
+                            </form>
+
+                            <!-- Error message display -->
+                            <% if (typeof error !== 'undefined') { %>
+                                <div class="text-center text-danger mt-3"><%= error %></div>
+                            <% } %>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section><!-- #content end -->
+
+        <!-- Footer -->
+        <footer id="footer" class="dark bg-black border-top-0">
+            <div class="container py-4">
+                <div class="footer-widgets-wrap">
+                    <div class="row col-mb-50">
+                        <div class="col-md-4">
+                            <div class="widget subscribe-widget">
+                                <h3 class="text-transform-none ls-0 border-bottom d-inline-block mb-5">Subscribe to Our Newsletter</h3>
+                                <p>Get Important News, Amazing Offers &amp; Inside Scoops weekly right to your Inbox.</p>
+                                <form id="widget-subscribe-form" action="include/subscribe.php" method="post" class="mb-0">
+                                    <div class="input-group mx-auto">
+                                        <input type="email" name="email" class="form-control" placeholder="Enter your Email" required>
+                                        <button class="btn" type="submit"><i class="bi-arrow-right"></i></button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="widget widget_links">
+                                <h3>Contact Us</h3>
+                                <ul>
+                                    <li><a href="mailto:info@ficus.com">info@ficus.com</a></li>
+                                    <li><a href="tel:+0011122233">+0011122233</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="widget widget_links">
+                                <h3>Follow Us</h3>
+                                <ul>
+                                    <li><a href="https://facebook.com">Facebook</a></li>
+                                    <li><a href="https://twitter.com">Twitter</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div><!-- #wrapper end -->
+
+    <!-- JavaScripts -->
+    <script src="js/plugins.min.js"></script>
+    <script src="js/functions.bundle.js"></script>
+
+</body>
+</html>

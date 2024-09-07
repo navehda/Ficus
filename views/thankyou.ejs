@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="author" content="SemiColonWeb">
+    <meta name="description" content="Thank you for your purchase! Ficus - Sustainable Goods.">
+
+    <!-- Font Imports -->
+    <link rel="stylesheet" href="https://use.typekit.net/aay8rzy.css">
+
+    <!-- Core Style -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Font Icons -->
+    <link rel="stylesheet" href="/css/font-icons.css">
+
+    <!-- Plugins/Components CSS -->
+    <link rel="stylesheet" href="/css/rs6.css">
+    <link rel="stylesheet" href="/scroll/scroll.css">
+
+    <!-- Niche Demos -->
+    <link rel="stylesheet" href="/css/skincare.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/custom.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Document Title -->
+    <title>Thank You | Ficus - Sustainable Goods</title>
+
+</head>
+
+<body>
+
+    <!-- Document Wrapper -->
+    <div id="wrapper">
+
+        <!-- Top Bar -->
+        <div id="top-bar" class="py-3 border-0" style="background: var(--cnvs-color2);">
+            <div class="container text-center color">
+                <div style="font-size: .9375rem;">Get 20% off* your First Order &amp; Free Shipping for purchases above $99</div>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <header id="header" class="header-size-sm" data-sticky-shrink="false" style="border-color: var(--cnvs-color);">
+            <div class="container">
+                <div class="header-row justify-content-lg-between">
+
+                    <!-- Primary Menu -->
+                    <nav class="primary-menu top-primary-menu col-lg-5 order-last order-lg-first mobile-menu-off-canvas">
+                        <ul class="menu-container">
+                            <li class="menu-item current"><a class="menu-link" href="/"><div>Home</div></a></li>
+                            <li class="menu-item"><a class="menu-link" href="/shop"><div>Products</div></a></li>
+                            <li class="menu-item"><a class="menu-link" href="/faqs"><div>FAQs</div></a></li>
+                            <li class="menu-item"><a class="menu-link" href="/cart"><div>Cart</div></a></li>
+                            <li class="menu-item d-block d-lg-none"><a class="menu-link" href="/contact"><div>Contact</div></a></li>
+                        </ul>
+                    </nav>
+
+                    <!-- Logo -->
+                    <div id="logo" class="mx-lg-auto col-lg-2 justify-content-center">
+                        <a class="color fst-italic" href="#">Ficus.</a>
+                    </div>
+
+                    <div class="col-lg-5 d-flex justify-content-end">
+                        <div class="header-misc">
+
+                            <!-- User Account -->
+                            <div class="header-misc-icon me-lg-4">
+                                <a href="/login"><i class="bi-person-circle"></i></a>
+                            </div>
+
+                            <!-- Cart Icon -->
+                            <div id="top-cart" class="header-misc-icon me-lg-4">
+                                <a href="/cart" id="top-cart-trigger"><i class="bi-basket"></i></a>
+                                <div class="top-cart-content">
+                                    <div class="top-cart-title">
+                                        <h4 class="ls-0 text-transform-none">Shopping Cart</h4>
+                                    </div>
+                                    <div class="top-cart-items">
+                                        <!-- Cart Items Here -->
+                                    </div>
+                                    <div class="top-cart-action border-default">
+                                        <a href="/cart" class="button button-small m-0">View Cart</a>
+                                        <span class="top-checkout-price">$0.00</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Search -->
+                            <div id="top-search" class="header-misc-icon">
+                                <a href="#" id="top-search-trigger"><i class="uil uil-search"></i><i class="bi-x-lg"></i></a>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <form class="top-search-form" action="/search" method="get">
+                        <input type="text" name="q" class="form-control" value="" placeholder="Type &amp; Hit Enter.." autocomplete="off">
+                    </form>
+
+                </div>
+            </div>
+        </header>
+
+        <!-- Content -->
+        <div id="content">
+            <div class="content-wrap">
+                <div class="container text-center">
+                    <h1>Thank You for Your Purchase!</h1>
+                    <p>Your order has been successfully placed.</p>
+
+                    <h2>Order Summary</h2>
+                    <ul>
+                        <ul style="list-style-type: none; padding-left: 0;">                        
+                        <li><strong>Name:</strong> <%= orderDetails.username %></li>
+                        <li><strong>Shipping Address:</strong> <%= orderDetails.address %></li>
+                        <li><strong>Payment Method:</strong> <%= orderDetails.paymentMethod %></li>
+                        <li><strong>Total:</strong> $<%= orderDetails.total.toFixed(2) %></li>
+                    </ul>
+                    <br>
+                    <a href="/" class="button button-large">Continue Shopping</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer id="footer" class="dark bg-black border-top-0">
+            <div class="container py-4">
+                <div class="footer-widgets-wrap">
+                    <div class="row col-mb-50">
+                        <div class="col-md-4">
+                            <div class="widget subscribe-widget">
+                                <h3 class="text-transform-none ls-0 border-bottom d-inline-block mb-5">Subscribe to Our Newsletter</h3>
+                                <p>Get Important News, Amazing Offers &amp; Inside Scoops weekly right to your Inbox.</p>
+                                <form id="widget-subscribe-form" action="include/subscribe.php" method="post" class="mb-0">
+                                    <div class="input-group mx-auto">
+                                        <input type="email" id="widget-subscribe-form-email" name="widget-subscribe-form-email" class="form-control required email" placeholder="Enter your Email">
+                                        <button class="btn border-start-0" type="submit"><i class="bi-arrow-right h-op-08"></i></button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-6 offset-md-2">
+                            <div class="widget widget_links">
+                                <h3 class="text-transform-none ls-0 border-bottom d-inline-block mb-5">Contact Us</h3>
+                                <ul>
+                                    <li class="mb-2"><a class="ls-1 text-light" href="mailto:noreply@canvas.com">noreply@canvas.com</a></li>
+                                    <li class="mb-2"><a class="ls-1 text-light" href="tel:+0011122233">0-111-222-33</a></li>
+                                    <li><a class="ls-1 text-light" href="/login">Sign In/Register</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-6">
+                            <div class="widget widget_links">
+                                <h3 class="text-transform-none ls-0 border-bottom d-inline-block mb-5">Follow Us</h3>
+                                <ul>
+                                    <li class="mb-2"><a class="ls-1 text-light" target="_blank" href="https://facebook.com/SemiColonWeb">Facebook</a></li>
+                                    <li class="mb-2"><a class="ls-1 text-light" target="_blank" href="https://twitter.com/__semicolon">Twitter</a></li>
+                                    <li><a class="ls-1 text-light" target="_blank" href="https://instagram.com/semicolonweb">Instagram</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div id="copyrights" style="border-top: 1px solid rgba(255,255,255,.2)">
+                <div class="container">
+                    <div class="row col-mb-30">
+                        <div class="col-md-6 text-center text-md-start">
+                            Copyrights &copy; 2023 All Rights Reserved by Ficus Inc.
+                        </div>
+                        <div class="col-md-6 text-center text-md-end">
+                            <a href="#" class="text-light op-03 h-op-05"><u>Terms of Use</u></a> / <a href="#" class="text-light op-03 h-op-05"><u>Privacy Policy</u></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div><!-- #wrapper end -->
+
+    <!-- Go To Top -->
+    <div id="gotoTop" class="uil uil-angle-up"></div>
+
+    <!-- JavaScripts -->
+    <script src="/js/plugins.min.js"></script>
+    <script src="/js/functions.bundle.js"></script>
+
+</body>
+</html>

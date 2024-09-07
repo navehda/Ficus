@@ -1,0 +1,27 @@
+[
+  {
+    "datetime": "2024-09-07T07:03:38.681Z",
+    "username": "admin",
+    "type": "login"
+  },
+  {
+    "datetime": "2024-09-07T07:04:04.908Z",
+    "username": "admin",
+    "type": "add-to-cart"
+  },
+  {
+    "datetime": "2024-09-07T07:10:44.633Z",
+    "username": "admin",
+    "type": "login"
+  },
+  {
+    "datetime": "2024-09-07T07:12:55.998Z",
+    "username": "admin",
+    "type": "logout"
+  },
+  {
+    "datetime": "2024-09-07T07:13:02.899Z",
+    "username": "naveh6",
+    "type": "login"
+  }
+]

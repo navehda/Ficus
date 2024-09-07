@@ -5,3 +5,13 @@
 	Overwriting Default Theme Styles for Better Handling Updates
 -----------------------------------------------------------------*/
 
+/* Specific styles for the admin panel */
+.admin-panel .card-header h3 {
+	color: white !important;
+  }
+  
+  .admin-panel table thead {
+	background-color: #6b8e23;
+	color: white;
+  }
+  

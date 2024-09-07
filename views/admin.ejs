@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta http-equiv="x-ua-compatible" content="IE=edge">
+	<meta name="author" content="Navehda">
+	<meta name="description" content="Ficus - sustainable goods.">
+
+	<!-- Font Imports -->
+	<link rel="stylesheet" href="https://use.typekit.net/aay8rzy.css">
+
+	<!-- Core Style -->
+	<link rel="stylesheet" href="/css/style.css">
+
+	<!-- Font Icons -->
+	<link rel="stylesheet" href="/css/font-icons.css">
+
+	<!-- Plugins/Components CSS -->
+	<link rel="stylesheet" href="/css/rs6.css">
+	<link rel="stylesheet" href="/scroll/scroll.css">
+
+	<!-- Niche Demos -->
+	<link rel="stylesheet" href="/css/skincare.css">
+
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="/css/custom.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>Admin Panel - Ficus Store</title>
+</head>
+
+<body class="stretched">
+    <div id="wrapper" class="admin-panel">
+        
+    <!-- Header -->
+    <header id="header" class="header-size-sm">
+      <div class="container">
+        <div class="header-row justify-content-between">
+          
+          <!-- Logo -->
+          <div id="logo" class="col-lg-2 justify-content-center">
+            <a href="/" class="color fst-italic">Ficus.</a>
+          </div><!-- #logo end -->
+
+          <!-- Navigation -->
+          <nav class="primary-menu top-primary-menu col-lg-8">
+            <ul class="menu-container">
+              <li class="menu-item"><a class="menu-link" href="/"><div>Home</div></a></li>
+              <li class="menu-item"><a class="menu-link" href="/shop"><div>Shop</div></a></li>
+              <li class="menu-item"><a class="menu-link" href="/faqs"><div>FAQs</div></a></li>
+              <li class="menu-item"><a class="menu-link" href="/contact"><div>Contact</div></a></li>
+              <li class="menu-item"><a class="menu-link" href="/admin"><div>Admin</div></a></li>
+              <li class="menu-item"><a class="menu-link" href="/logout"><div>Logout</div></a></li>
+            </ul>
+          </nav>
+
+        </div>
+      </div>
+    </header>
+
+    <!-- Content -->
+    <section id="content">
+      <div class="content-wrap">
+        <div class="container">
+          
+          <!-- Activity Log Section -->
+          <div class="row justify-content-center mb-5">
+            <div class="col-lg-9">
+              <div class="card">
+                <div class="card-header bg-dark text-white">
+                  <h3>Activity Log</h3>
+                  <span>Log of all user activities</span>
+                  <input type="text" id="activityFilter" placeholder="Filter by username" class="form-control mt-3">
+                </div>
+                <div class="card-body p-0">
+                  <div class="table-responsive p-3" style="max-height: 300px; overflow-y: scroll;">
+                    <table class="table table-borderless mb-0">
+                      <thead>
+                        <tr>
+                          <th>Date/Time</th>
+                          <th>Username</th>
+                          <th>Activity Type</th>
+                        </tr>
+                      </thead>
+                      <tbody id="activityTableBody">
+                        <% activities.forEach(activity => { %>
+                          <tr>
+                            <td><%= activity.datetime %></td>
+                            <td><%= activity.username %></td>
+                            <td><%= activity.type %></td>
+                          </tr>
+                        <% }); %>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Manage Products Section -->
+          <div class="row justify-content-center">
+            <div class="col-lg-9">
+              <div class="card">
+                <div class="card-header bg-dark text-white">
+                  <h3>Manage Products</h3>
+                  <span>Add or remove products from the store</span>
+                </div>
+                <div class="card-body">
+                  <!-- Add Product Form -->
+                  <form method="POST" action="/admin/products/add">
+                    <div class="row mb-3">
+                      <div class="col-md-6">
+                        <label>Product Name</label>
+                        <input type="text" name="name" class="form-control" required>
+                      </div>
+                      <div class="col-md-6">
+                        <label>Price</label>
+                        <input type="number" name="price" class="form-control" required>
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <label>Description</label>
+                      <textarea name="description" class="form-control" rows="3" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                      <label>Image URL</label>
+                      <input type="url" name="image" class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Product</button>
+                  </form>
+
+                  <!-- Product List -->
+                  <table class="table mt-4">
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% products.forEach(product => { %>
+                        <tr>
+                          <td><%= product.name %></td>
+                          <td>$<%= product.price %></td>
+                          <td>
+                            <form method="POST" action="/admin/products/delete">
+                              <input type="hidden" name="productId" value="<%= product.id %>">
+                              <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                          </td>
+                        </tr>
+                      <% }); %>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer" class="dark bg-black border-top-0">
+      <div class="container py-4">
+        <div class="footer-widgets-wrap">
+          <div class="row col-mb-50">
+            <div class="col-md-6 text-center text-md-start">
+              <p class="mb-0">&copy; 2024 Ficus Store. All Rights Reserved.</p>
+            </div>
+            <div class="col-md-6 text-center text-md-end">
+              <a href="#">Terms of Use</a> / <a href="#">Privacy Policy</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- JavaScripts -->
+  <script src="/js/plugins.min.js"></script>
+  <script src="/js/functions.bundle.js"></script>
+  <script>
+    // Client-side filtering for activity log
+    document.getElementById('activityFilter').addEventListener('input', function () {
+      const filterValue = this.value.toLowerCase();
+      const rows = document.querySelectorAll('#activityTableBody tr');
+      rows.forEach(row => {
+        const username = row.cells[1].textContent.toLowerCase();
+        row.style.display = username.startsWith(filterValue) ? '' : 'none';
+      });
+    });
+  </script>
+</body>
+</html>
+

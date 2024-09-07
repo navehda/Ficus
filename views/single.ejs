@@ -5,7 +5,7 @@
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta http-equiv="x-ua-compatible" content="IE=edge">
 	<meta name="author" content="SemiColonWeb">
-	<meta name="description" content="Create Skincare Store &amp; Beauty Products Websites with Canvas Template. Get Canvas to build powerful websites easily with the Highly Customizable &amp; Best Selling Bootstrap Template, today.">
+	<meta name="description" content="Ficus - Sustainable Goods.">
 
 	<!-- Font Imports -->
 	<link rel="stylesheet" href="https://use.typekit.net/aay8rzy.css">
@@ -26,9 +26,11 @@
 	<link rel="stylesheet" href="css/custom.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<!-- Document Title
-	============================================= -->
-	<title>Shop products - Ficus | sustainable goods.</title>
+    <!-- Document Title
+    ============================================= -->
+    <title><%= product.name %> | Ficus - Sustainable Goods</title>
+</head>
+
 
 	<style>
 		/* Specific for This Page for Smooth Scrolling Product Image */
@@ -46,16 +48,16 @@
 </head>
 
 <body class="stretched skincare-shop-single">
-
-	<!-- Document Wrapper
-	============================================= -->
-	<div id="wrapper">
+    <!-- Document Wrapper -->
+    <div id="wrapper">
+        <!-- Top Bar -->
+        <!-- Header and other sections remain unchanged -->
 
 		<!-- Top Bar
 		============================================= -->
 		<div id="top-bar" class="py-3 border-0" style="background: var(--cnvs-color2);">
 			<div class="container text-center color">
-				<div style="font-size: .9375rem;">Get 20% off* your First Order &amp; Free Shipping Upto $99</div>
+				<div style="font-size: .9375rem;">Get 20% off* your First Order &amp; Free Shipping for purchases above $99</div>
 			</div>
 		</div>
 
@@ -68,12 +70,11 @@
 					<nav class="primary-menu top-primary-menu col-lg-5 order-last order-lg-first mobile-menu-off-canvas">
 
 						<ul class="menu-container">
-							<li class="menu-item"><a class="menu-link" href="index.ejs"><div>Home</div></a></li>
-							<li class="menu-item"><a class="menu-link" href="shop.ejs"><div>Products</div></a></li>
-							<li class="menu-item"><a class="menu-link" href="single.ejs"><div>Single</div></a></li>
-							<li class="menu-item"><a class="menu-link" href="faqs.ejs"><div>FAQs</div></a></li>
-							<li class="menu-item"><a class="menu-link" href="cart.ejs"><div>Cart</div></a></li>
-							<li class="menu-item d-block d-lg-none"><a class="menu-link" href="contact.ejs"><div>Contact</div></a></li>
+							<li class="menu-item"><a class="menu-link" href="index"><div>Home</div></a></li>
+							<li class="menu-item"><a class="menu-link" href="shop"><div>Products</div></a></li>
+							<li class="menu-item"><a class="menu-link" href="faqs"><div>FAQs</div></a></li>
+							<li class="menu-item"><a class="menu-link" href="cart"><div>Cart</div></a></li>
+							<li class="menu-item d-block d-lg-none"><a class="menu-link" href="cart"><div>Contact</div></a></li>
 						</ul>
 
 					</nav><!-- #primary-menu end -->
@@ -89,7 +90,7 @@
 
 							<nav class="primary-menu top-primary-menu me-2 d-none d-lg-block">
 								<ul class="menu-container">
-									<li class="menu-item"><a class="menu-link" href="contact.ejs"><div>Contact</div></a></li>
+									<li class="menu-item"><a class="menu-link" href="cart"><div>Contact</div></a></li>
 								</ul>
 							</nav><!-- #primary-menu end -->
 
@@ -102,7 +103,7 @@
 							 <!-- Top Account
 							============================================= -->
 							<div class="header-misc-icon me-lg-4">
-								<a href="login.ejs"><i class="bi-person-circle"></i></a>
+								<a href="login"><i class="bi-person-circle"></i></a>
 							</div><!-- top-Account end -->
 
 							<!-- Top Cart
@@ -116,14 +117,14 @@
 									<div class="top-cart-items">
 										<div class="top-cart-item">
 											<div class="top-cart-item-image position-relative">
-												<a href="single.ejs"><img src="images/products/13.jpg" alt="Blue Shoulder Bag"></a>
+												<a href="single"><img src="images/products/13.jpg" alt="Blue Shoulder Bag"></a>
 												<span class="position-absolute top-0 start-0 translate-middle bg-danger rounded-circle lh-1 border border-white text-white square square-xs text-center">
 													<span class="visually-hidden">Remove Product</span>&times;
 												</span>
 											</div>
 											<div class="top-cart-item-desc">
 												<div class="top-cart-item-desc-title">
-													<a href="single.ejs" class="fw-normal">Âimtze Cream &amp; Lotions</a>
+													<a href="single" class="fw-normal">Âimtze Cream &amp; Lotions</a>
 													<span class="top-cart-item-price d-block">$29.99</span>
 												</div>
 												<div class="top-cart-item-quantity">x 1</div>
@@ -131,14 +132,14 @@
 										</div>
 										<div class="top-cart-item border-default">
 											<div class="top-cart-item-image position-relative">
-												<a href="single.ejs"><img src="images/products/11.jpg" alt="Blue Shoulder Bag"></a>
+												<a href="single"><img src="images/products/11.jpg" alt="Blue Shoulder Bag"></a>
 												<span class="position-absolute top-0 start-0 translate-middle bg-danger rounded-circle lh-1 border border-white text-white square square-xs text-center">
 													<span class="visually-hidden">Remove Product</span>&times;
 												</span>
 											</div>
 											<div class="top-cart-item-desc">
 												<div class="top-cart-item-desc-title">
-													<a href="single.ejs" class="fw-normal">Clove Super Serum</a>
+													<a href="single" class="fw-normal">Clove Super Serum</a>
 													<span class="top-cart-item-price d-block">$12.49</span>
 												</div>
 												<div class="top-cart-item-quantity">x 2</div>
@@ -146,7 +147,7 @@
 										</div>
 									</div>
 									<div class="top-cart-action border-default">
-										<a href="cart.ejs" class="button button-small m-0">View Cart</a>
+										<a href="cart" class="button button-small m-0">View Cart</a>
 										<span class="top-checkout-price">$54.97</span>
 									</div>
 								</div>
@@ -161,7 +162,7 @@
 						</div>
 					</div>
 
-					<form class="top-search-form" action="search.html" method="get">
+					<form class="top-search-form" action="search" method="get">
 						<input type="text" name="q" class="form-control" value="" placeholder="Type &amp; Hit Enter.." autocomplete="off">
 					</form>
 
@@ -183,11 +184,11 @@
 						<nav class="primary-menu main-primary-menu w-100 with-arrows">
 
 							<ul class="menu-container justify-content-between">
-								<li class="menu-item"><a class="menu-link" href="shop.ejs"><div>New Collections</div></a></li>
-								<li class="menu-item mega-menu mega-menu-small"><a class="menu-link" href="shop.ejs"><div>Shop for Skin</div></a>
+								<li class="menu-item"><a class="menu-link" href="shop"><div>New Collections</div></a></li>
+								<li class="menu-item mega-menu mega-menu-small"><a class="menu-link" href="shop"><div>Shop for Skin</div></a>
 									<div class="mega-menu-content">
 										<div class="row g-0 align-items-stretch">
-											<a href="shop.ejs" class="col-lg-4 d-none d-lg-flex imagescale" style="background: linear-gradient(to bottom,rgba(255,255,255,0.001) 25%,var(--bs-danger) 100%), url('images/megamenu.jpg') center center / cover;">
+											<a href="shop" class="col-lg-4 d-none d-lg-flex imagescale" style="background: linear-gradient(to bottom,rgba(255,255,255,0.001) 25%,var(--bs-danger) 100%), url('images/megamenu.jpg') center center / cover;">
 												<div class="bg-overlay">
 													<div class="bg-overlay-content justify-content-center align-items-end">
 														<div class="text-white op-1 border-bottom d-inline-block all-ts mb-2" data-hover-animate="op-1 scale-lg"  data-hover-animate-out="op-1" data-hover-parent=".bg-overlay">View Products</div>
@@ -241,18 +242,18 @@
 										</div>
 									</div>
 								</li>
-								<li class="menu-item"><a class="menu-link" href="shop.ejs"><div>Shop for Hair</div></a>
+								<li class="menu-item"><a class="menu-link" href="shop"><div>Shop for Hair</div></a>
 									<ul class="sub-menu-container">
-										<li class="menu-item"><a class="menu-link" href="shop.ejs"><div>Most Popular</div></a></li>
-										<li class="menu-item"><a class="menu-link" href="shop.ejs"><div>Latest Items</div></a></li>
-										<li class="menu-item"><a class="menu-link" href="shop.ejs"><div>New Arrivals</div></a></li>
-										<li class="menu-item"><a class="menu-link" href="shop.ejs"><div>View All</div></a></li>
+										<li class="menu-item"><a class="menu-link" href="shop"><div>Most Popular</div></a></li>
+										<li class="menu-item"><a class="menu-link" href="shop"><div>Latest Items</div></a></li>
+										<li class="menu-item"><a class="menu-link" href="shop"><div>New Arrivals</div></a></li>
+										<li class="menu-item"><a class="menu-link" href="shop"><div>View All</div></a></li>
 									</ul>
 								</li>
-								<li class="menu-item"><a class="menu-link" href="shop.ejs"><div>Upto 40% Sale</div></a></li>
-								<li class="menu-item"><a class="menu-link" href="shop.ejs"><div>Accessories Items</div></a></li>
-								<li class="menu-item"><a class="menu-link" href="shop.ejs"><div>Our Farmhouse</div></a></li>
-								<li class="menu-item"><a class="menu-link" href="contact.ejs"><div>Contact</div></a></li>
+								<li class="menu-item"><a class="menu-link" href="shop"><div>Up to 40% Sale</div></a></li>
+								<li class="menu-item"><a class="menu-link" href="shop"><div>Accessories Items</div></a></li>
+								<li class="menu-item"><a class="menu-link" href="shop"><div>Our Farmhouse</div></a></li>
+								<li class="menu-item"><a class="menu-link" href="cart"><div>Contact</div></a></li>
 							</ul>
 
 						</nav><!-- #primary-menu end -->
@@ -264,18 +265,20 @@
 
 		 <!-- Hero
 		============================================= -->
-		<div class="container">
-			<div class="row g-0 col-mb-50 swiper-vertical">
-				<div class="col-md-6">
-					<div class="row">
-						<nav id="sticky-dots" class="d-none d-md-flex flex-column align-items-center col-auto one-page-menu" data-active-class="active" data-parent=".nav-link">
-							<a class="nav-link sticky-dot active" href="#item-1" data-href="#item-1"><i class="bi-circle"></i></a>
-							<a class="nav-link sticky-dot" href="#item-2" data-href="#item-2"><i class="bi-circle"></i></a>
-							<a class="nav-link sticky-dot" href="#item-3" data-href="#item-3"><i class="bi-circle"></i></a>
-							<a class="nav-link sticky-dot" href="#item-4" data-href="#item-4"><i class="bi-circle"></i></a>
-							<a class="nav-link sticky-dot" href="#item-5" data-href="#item-5"><i class="bi-circle"></i></a>
-							<a class="nav-link sticky-dot" href="#item-6" data-href="#item-6"><i class="bi-play"></i></a>
-						</nav>
+        <div class="container">
+            <div class="row g-0 col-mb-50 swiper-vertical">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col scroll-container mt-5">
+                            <div class="masonry-thumbs grid-container row row-cols-3 row-cols-md-1 masonry-gap-xl" data-lightbox="gallery">
+								<a href="<%= product.image %>" id="item-1" class="page-section p-0" data-lightbox="gallery-item" title="<%= product.name %>">
+									<img src="<%= product.image %>" alt="<%= product.name %>">
+								</a>
+							</div>
+                        </div>
+                    </div>
+                </div>
+
 
 						<div class="col scroll-container mt-5">
 							<div class="masonry-thumbs grid-container row row-cols-3 row-cols-md-1 masonry-gap-xl" data-lightbox="gallery">
@@ -314,14 +317,16 @@
 
 							<!-- Product Single - Rating
 							============================================= -->
-							<div class="product-rating">
-								<i class="bi-star-fill color"></i>
-								<i class="bi-star-fill color"></i>
-								<i class="bi-star-fill color"></i>
-								<i class="bi-star-fill color"></i>
-								<i class="bi-star-half color"></i>
-							</div><!-- Product Single - Rating End -->
 
+							<div class="product-rating">
+								<!-- Dynamic rating rendering -->
+								<% for (let i = 0; i < Math.floor(product.rating); i++) { %>
+									<i class="bi-star-fill color"></i>
+								<% } %>
+								<% if (product.rating % 1 !== 0) { %>
+									<i class="bi-star-half color"></i>
+								<% } %>
+							</div>
 						</div>
 
 						<h2 class="fs-1 lh-sm">Stochkholm Skincare & Moisture</h2>
@@ -330,36 +335,38 @@
 
 						<!-- Quantity & Cart Button
 						============================================= -->
-						<form class="cart cart-border cart-border-2 mb-0 d-flex flex-column flex-lg-row align-items-lg-center" method="post" enctype='multipart/form-data'>
-							<div class="quantity mb-2 mb-lg-0 me-2 me-lg-4  justify-content-between">
+						<form action="/cart/add" method="POST" class="cart cart-border cart-border-2 mb-0 d-flex flex-column flex-lg-row align-items-lg-center">
+							<!-- Hidden input to pass the product ID -->
+							<input type="hidden" name="productId" value="<%= product.id %>">
+		
+							<div class="quantity mb-2 mb-lg-0 me-2 me-lg-4 justify-content-between">
 								<button type="button" class="minus"><i class="uil uil-minus"></i></button>
 								<input type="number" step="1" min="1" name="quantity" value="1" title="Qty" class="qty border-0">
 								<button type="button" class="plus"><i class="uil uil-plus"></i></button>
 							</div>
-							<button type="submit" class="add-to-cart button m-0 flex-fill text-white" style="--cnvs-btn-padding-y: 0.75rem">$24.99<i class="bi-circle-fill small mx-3"></i>Add to Cart</button>
-						</form><!-- Quantity & Cart Button End -->
+		
+							<button type="submit" class="add-to-cart button m-0 flex-fill text-white" style="--cnvs-btn-padding-y: 0.75rem">$<%= product.price %><i class="bi-circle-fill small mx-3"></i>Add to Cart</button>
+						</form>
+		
 						<div class="lh-sm small mt-3 op-06">Free US shipping. International flat-rate. &middot; Skip or cancel any time.</div>
-
+		
 						<div class="line my-4" style="border-color: var(--cnvs-color);"></div>
+		
 
 						<!-- Product Single - Short Description
 						============================================= -->
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero velit id eaque ex quae laboriosam nulla optio doloribus! Perspiciatis, libero, neque, perferendis at nisi optio dolor!</p>
+                        <!-- Product Description -->
+                        <p><%= product.description %></p>
 						<div class="row mb-2">
-							<span class="col-sm-3 fw-semibold">Skin Moisture:</span>
-							<span class="col-sm-9">Cleansed, Smooth, Refreshing</span>
+							<span class="col-sm-3 fw-semibold">Features:</span>
+							<span class="col-sm-9"><%= product.features %></span>
 						</div>
-
-						<div class="row mb-2">
-							<span class="col-sm-3 fw-semibold">Ingredients:</span>
-							<span class="col-sm-9">Avobenzone, 3%, Homosalate 8%, Octisalate 5%, Octocrylene 4%</span>
-						</div>
-
-						<div class="row mb-4">
-							<span class="col-sm-3 fw-semibold">How to Apply:</span>
-							<span class="col-sm-9">Apply generously and evenly as the last step in your skincare routine and before makeup.</span>
-						</div>
-						<p class="mb-0">Perspiciatis ad eveniet ea quasi debitis quos laborum eum reprehenderit eaque explicabo assumenda rem modi.</p>
+		
+                        <div class="row mb-4">
+                            <span class="col-sm-3 fw-semibold">How to Apply:</span>
+                            <span class="col-sm-9"><%= product.howToApply %></span>
+                        </div>
+                        <p class="mb-0">Perspiciatis ad eveniet ea quasi debitis quos laborum eum reprehenderit eaque explicabo assumenda rem modi.</p>
 					</div>
 				</nav>
 			</div>
@@ -498,11 +505,11 @@
 							<div class="oc-item">
 								<div class="product">
 									<div class="product-image mb-2">
-										<a href="single.ejs"><img src="images/products/10.jpg" alt="..."></a>
+										<a href="single"><img src="images/products/10.jpg" alt="..."></a>
 										<div class="sale-flash badge bg-color rounded-0 fw-normal p-2">50% Off*</div>
 										<div class="bg-overlay">
 											<div class="bg-overlay-content align-items-end justify-content-end" data-hover-animate="fadeIn">
-												<a href="single.ejs" class="d-block positon-absolute top-0 start-0 w-100 h-100 z-1"><span class="visually-hidden">Product Link</span></a>
+												<a href="single" class="d-block positon-absolute top-0 start-0 w-100 h-100 z-1"><span class="visually-hidden">Product Link</span></a>
 												<a href="#" class="btn bg-color bg-opacity-75 text-light me-2 z-2"><i class="bi-basket"></i></a>
 											</div>
 										</div>
@@ -518,10 +525,10 @@
 							<div class="oc-item">
 								<div class="product">
 									<div class="product-image mb-2">
-										<a href="single.ejs"><img src="images/products/11.jpg" alt="..."></a>
+										<a href="single"><img src="images/products/11.jpg" alt="..."></a>
 										<div class="bg-overlay">
 											<div class="bg-overlay-content align-items-end justify-content-end" data-hover-animate="fadeIn">
-												<a href="single.ejs" class="d-block positon-absolute top-0 start-0 w-100 h-100 z-1"><span class="visually-hidden">Product Link</span></a>
+												<a href="single" class="d-block positon-absolute top-0 start-0 w-100 h-100 z-1"><span class="visually-hidden">Product Link</span></a>
 												<a href="#" class="btn bg-color bg-opacity-75 text-light me-2 z-2"><i class="bi-basket"></i></a>
 											</div>
 										</div>
@@ -537,10 +544,10 @@
 							<div class="oc-item">
 								<div class="product">
 									<div class="product-image mb-2">
-										<a href="single.ejs"><img src="images/products/12.jpg" alt="..."></a>
+										<a href="single"><img src="images/products/12.jpg" alt="..."></a>
 										<div class="bg-overlay">
 											<div class="bg-overlay-content align-items-end justify-content-end" data-hover-animate="fadeIn">
-												<a href="single.ejs" class="d-block positon-absolute top-0 start-0 w-100 h-100 z-1"><span class="visually-hidden">Product Link</span></a>
+												<a href="single" class="d-block positon-absolute top-0 start-0 w-100 h-100 z-1"><span class="visually-hidden">Product Link</span></a>
 												<a href="#" class="btn bg-color bg-opacity-75 text-light me-2 z-2"><i class="bi-basket"></i></a>
 											</div>
 										</div>
@@ -556,11 +563,11 @@
 							<div class="oc-item">
 								<div class="product">
 									<div class="product-image mb-2">
-										<a href="single.ejs"><img src="images/products/13.jpg" alt="..."></a>
+										<a href="single"><img src="images/products/13.jpg" alt="..."></a>
 										<div class="sale-flash badge bg-color rounded-0 fw-normal p-2">Sale!</div>
 										<div class="bg-overlay">
 											<div class="bg-overlay-content align-items-end justify-content-end" data-hover-animate="fadeIn">
-												<a href="single.ejs" class="d-block positon-absolute top-0 start-0 w-100 h-100 z-1"><span class="visually-hidden">Product Link</span></a>
+												<a href="single" class="d-block positon-absolute top-0 start-0 w-100 h-100 z-1"><span class="visually-hidden">Product Link</span></a>
 												<a href="#" class="btn bg-color bg-opacity-75 text-light me-2 z-2"><i class="bi-basket"></i></a>
 											</div>
 										</div>
@@ -576,10 +583,10 @@
 							<div class="oc-item">
 								<div class="product">
 									<div class="product-image mb-2">
-										<a href="single.ejs"><img src="images/products/15.jpg" alt="..."></a>
+										<a href="single"><img src="images/products/15.jpg" alt="..."></a>
 										<div class="bg-overlay">
 											<div class="bg-overlay-content align-items-end justify-content-end" data-hover-animate="fadeIn">
-												<a href="single.ejs" class="d-block positon-absolute top-0 start-0 w-100 h-100 z-1"><span class="visually-hidden">Product Link</span></a>
+												<a href="single" class="d-block positon-absolute top-0 start-0 w-100 h-100 z-1"><span class="visually-hidden">Product Link</span></a>
 												<a href="#" class="btn bg-color bg-opacity-75 text-light me-2 z-2"><i class="bi-basket"></i></a>
 											</div>
 										</div>
@@ -595,10 +602,10 @@
 							<div class="oc-item">
 								<div class="product">
 									<div class="product-image mb-2">
-										<a href="single.ejs"><img src="images/products/14.jpg" alt="..."></a>
+										<a href="single"><img src="images/products/14.jpg" alt="..."></a>
 										<div class="bg-overlay">
 											<div class="bg-overlay-content align-items-end justify-content-end" data-hover-animate="fadeIn">
-												<a href="single.ejs" class="d-block positon-absolute top-0 start-0 w-100 h-100 z-1"><span class="visually-hidden">Product Link</span></a>
+												<a href="single" class="d-block positon-absolute top-0 start-0 w-100 h-100 z-1"><span class="visually-hidden">Product Link</span></a>
 												<a href="#" class="btn bg-color bg-opacity-75 text-light me-2 z-2"><i class="bi-basket"></i></a>
 											</div>
 										</div>
@@ -655,7 +662,7 @@
 								<ul>
 									<li class="mb-2"><a class="ls-1 text-light" href="mailto:noreply@canvas.com">noreply@canvas.com</a></li>
 									<li class="mb-2"><a class="ls-1 text-light" href="tel:+0011122233">0-111-222-33</a></li>
-									<li><a class="ls-1 text-light" href="login.ejs">Sign In/Register</a></li>
+									<li><a class="ls-1 text-light" href="login">Sign In/Register</a></li>
 								</ul>
 
 							</div>

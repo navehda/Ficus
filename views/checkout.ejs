@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="author" content="SemiColonWeb">
+    <meta name="description" content="Ficus - sustainable goods.">
+
+    <!-- Font Imports -->
+    <link rel="stylesheet" href="https://use.typekit.net/aay8rzy.css">
+
+    <!-- Core Style -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Font Icons -->
+    <link rel="stylesheet" href="/css/font-icons.css">
+
+    <!-- Plugins/Components CSS -->
+    <link rel="stylesheet" href="/css/rs6.css">
+    <link rel="stylesheet" href="/scroll/scroll.css">
+
+    <!-- Niche Demos -->
+    <link rel="stylesheet" href="/css/skincare.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/custom.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Document Title -->
+    <title>Checkout | Ficus - sustainable goods.</title>
+
+</head>
+
+<body class="stretched skincare-shop">
+
+    <!-- Document Wrapper -->
+    <div id="wrapper">
+
+        <!-- Header -->
+        <header id="header" class="header-size-sm" style="border-color: var(--cnvs-color);">
+            <div class="container">
+                <div class="header-row justify-content-lg-between">
+                    <!-- Primary Menu -->
+                    <nav class="primary-menu top-primary-menu col-lg-5 order-last order-lg-first mobile-menu-off-canvas">
+                        <ul class="menu-container">
+                            <li class="menu-item current"><a class="menu-link" href="index"><div>Home</div></a></li>
+                            <li class="menu-item"><a class="menu-link" href="shop"><div>Products</div></a></li>
+                            <li class="menu-item"><a class="menu-link" href="faqs"><div>FAQs</div></a></li>
+                            <li class="menu-item"><a class="menu-link" href="cart"><div>Cart</div></a></li>
+                            <li class="menu-item d-block d-lg-none"><a class="menu-link" href="logout"><div>Logout</div></a></li>
+                        </ul>
+                    </nav><!-- #primary-menu end -->
+
+                    <!-- Logo -->
+                    <div id="logo" class="mx-lg-auto col-lg-2 justify-content-center">
+                        <a class="color fst-italic" href="#">Ficus.</a>
+                    </div><!-- #logo end -->
+
+                    <div class="col-lg-5 d-flex justify-content-end">
+                        <div class="header-misc">
+                            <nav class="primary-menu top-primary-menu me-2 d-none d-lg-block">
+                                <ul class="menu-container">
+                                    <li class="menu-item"><a class="menu-link" href="logout"><div>Logout</div></a></li>
+                                </ul>
+                            </nav><!-- #primary-menu end -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="header-wrap-clone"></div>
+        </header><!-- #header end -->
+
+        <!-- Content -->
+        <div id="content">
+            <div class="content-wrap">
+                <div class="container">
+                    <div class="row">
+                        <!-- Checkout Form -->
+                        <div class="col-xl-8">
+                            <h3>Checkout Details</h3>
+                            <form method="POST" action="/checkout/complete">
+                                <div class="form-group">
+                                    <label for="name">Full Name</label>
+                                    <input type="text" class="form-control" name="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="address">Shipping Address</label>
+                                    <input type="text" class="form-control" name="address" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="paymentMethod">Payment Method</label>
+                                    <select class="form-control" name="paymentMethod" required>
+                                        <option value="credit">Credit Card</option>
+                                        <option value="paypal">PayPal</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="button button-large">Complete Purchase</button>
+                            </form>
+                        </div>
+                        
+                        <!-- Order Summary -->
+                        <div class="col-xl-4">
+                            <h4>Order Summary</h4>
+                            <ul style="list-style-type: none; padding-left: 0;">
+                                <% cart.forEach(item => { %>
+                                    <li><%= item.name %> x <%= item.quantity %> = $<%= (item.price * item.quantity).toFixed(2) %></li>
+                                <% }); %>
+                            </ul>
+                            <h5>Total: $<%= cartTotal.toFixed(2) %></h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- #content end -->
+
+        <!-- Footer -->
+        <footer id="footer" class="dark bg-black border-top-0">
+            <div class="container py-4">
+                <!-- Footer Widgets -->
+                <div class="footer-widgets-wrap">
+                    <div class="row col-mb-50">
+                        <div class="col-md-4">
+                            <div class="widget subscribe-widget">
+                                <h3 class="text-transform-none ls-0 border-bottom d-inline-block mb-5">Subscribe to Our Newsletter</h3>
+                                <p>Get Important News, Amazing Offers & Inside Scoops weekly right to your Inbox.</p>
+                                <div class="widget-subscribe-form-result"></div>
+                                <form id="widget-subscribe-form" action="include/subscribe.php" method="post" class="mb-0">
+                                    <div class="input-group mx-auto">
+                                        <input type="email" id="widget-subscribe-form-email" name="widget-subscribe-form-email" class="form-control required email" placeholder="Enter your Email">
+                                        <button class="btn border-start-0" type="submit"><i class="bi-arrow-right h-op-08"></i></button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-6 offset-md-2">
+                            <div class="widget widget_links">
+                                <h3 class="text-transform-none ls-0 border-bottom d-inline-block mb-5">Contact Us</h3>
+                                <ul>
+                                    <li class="mb-2"><a class="ls-1 text-light" href="mailto:noreply@canvas.com">noreply@canvas.com</a></li>
+                                    <li class="mb-2"><a class="ls-1 text-light" href="tel:+0011122233">0-111-222-33</a></li>
+                                    <li><a class="ls-1 text-light" href="login">Sign In/Register</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-6">
+                            <div class="widget widget_links">
+                                <h3 class="text-transform-none ls-0 border-bottom d-inline-block mb-5">Follow Us</h3>
+                                <ul>
+                                    <li class="mb-2"><a class="ls-1 text-light" target="_blank" href="https://facebook.com/SemiColonWeb">Facebook</a></li>
+                                    <li class="mb-2"><a class="ls-1 text-light" target="_blank" href="https://twitter.com/__semicolon">Twitter</a></li>
+                                    <li><a class="ls-1 text-light" target="_blank" href="https://instagram.com/semicolonweb">Instagram</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="copyrights" style="border-top: 1px solid rgba(255,255,255,.2)">
+                <div class="container">
+                    <div class="row col-mb-30">
+                        <div class="col-md-6 text-center text-md-start">
+                            Copyrights &copy; 2023 All Rights Reserved by Ficus Store.
+                        </div>
+                        <div class="col-md-6 text-center text-md-end">
+                            <a href="#" class="text-light op-03 h-op-05"><u>Terms of Use</u></a> <span class="mx-2 text-light op-03">/</span> <a href="#" class="text-light op-03 h-op-05"><u>Privacy Policy</u></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer><!-- #footer end -->
+
+    </div><!-- #wrapper end -->
+
+    <!-- Go To Top -->
+    <div id="gotoTop" class="uil uil-angle-up"></div>
+
+    <!-- JavaScripts -->
+    <script src="js/plugins.min.js"></script>
+    <script src="js/functions.bundle.js"></script>
+
+</body>
+</html>
