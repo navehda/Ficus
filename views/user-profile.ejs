@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="author" content="Ficus">
+    <meta name="description" content="User Profile - Ficus Store">
+
+	<!-- Font Imports -->
+	<link rel="stylesheet" href="https://use.typekit.net/aay8rzy.css">
+
+	<!-- Core Style -->
+	<link rel="stylesheet" href="/css/style.css">
+
+	<!-- Font Icons -->
+	<link rel="stylesheet" href="/css/font-icons.css">
+
+	<!-- Plugins/Components CSS -->
+	<link rel="stylesheet" href="/css/rs6.css">
+	<link rel="stylesheet" href="/scroll/scroll.css">
+
+	<!-- Niche Demos -->
+	<link rel="stylesheet" href="/css/skincare.css">
+
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="/css/custom.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Document Title
+	============================================= -->
+    <title>User Profile | Ficus Store</title>
+
+</head>
+
+<body class="stretched">
+
+    <!-- Document Wrapper -->
+    <div id="wrapper">
+
+        <!-- Header -->
+        <header id="header" class="header-size-sm" data-sticky-shrink="false">
+            <div class="container">
+                <div class="header-row justify-content-lg-between">
+
+                    <!-- Primary Menu -->
+                    <nav class="primary-menu top-primary-menu col-lg-5 order-last order-lg-first mobile-menu-off-canvas">
+                        <ul class="menu-container">
+                            <li class="menu-item"><a class="menu-link" href="/"><div>Home</div></a></li>
+                            <li class="menu-item"><a class="menu-link" href="/shop"><div>Shop</div></a></li>
+                            <li class="menu-item"><a class="menu-link" href="/faqs"><div>FAQs</div></a></li>
+                            <li class="menu-item"><a class="menu-link" href="/cart"><div>Cart</div></a></li>
+                        </ul>
+                    </nav>
+
+                    <!-- Logo -->
+                    <div id="logo" class="mx-lg-auto col-lg-2 justify-content-center">
+                        <a class="color fst-italic" href="/">Ficus.</a>
+                    </div>
+
+                    <div class="col-lg-5 d-flex justify-content-end">
+                        <div class="header-misc">
+                            <!-- User Account -->
+                            <div class="header-misc-icon me-lg-4">
+                                <a href="/login"><i class="bi-person-circle"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </header>
+
+        <!-- Content -->
+        <section id="content">
+            <div class="content-wrap">
+
+                <div class="container">
+
+                    <div class="row justify-content-center">
+                        <div class="col-md-6">
+                            <h3 class="text-center fs-2 font-body">User Profile</h3>
+
+                            <!-- Error and Success Messages -->
+                                <% if (error) { %>
+                                    <div class="alert alert-danger text-center"><%= error %></div>
+                                <% } %>
+
+                                <% if (typeof success !== 'undefined') { %>
+                                    <div class="alert alert-success text-center"><%= success %></div>
+                                <% } %>
+
+
+                            <!-- User Profile Form -->
+                            <form action="/profile" method="post">
+
+                                <div class="form-group mb-3">
+                                    <label for="newUsername">Username</label>
+                                    <input type="text" id="newUsername" name="newUsername" value="<%= user.username %>" class="form-control" placeholder="New Username">
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label for="newPassword">New Password</label>
+                                    <input type="password" id="newPassword" name="newPassword" class="form-control" placeholder="New Password">
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label for="reenterPassword">Re-enter New Password</label>
+                                    <input type="password" id="reenterPassword" name="reenterPassword" class="form-control" placeholder="Re-enter New Password">
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label for="newAddress">Address</label>
+                                    <input type="text" id="newAddress" name="newAddress" value="<%= user.address || '' %>" class="form-control" placeholder="New Address">
+                                </div>
+
+                                <div class="form-group text-center">
+                                    <button type="submit" class="button text-light m-0 w-100">Update Profile</button>
+                                </div>
+
+                            </form>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer id="footer" class="dark bg-black border-top-0">
+            <div class="container py-4">
+                <div class="footer-widgets-wrap">
+                    <div class="row col-mb-50">
+                        <div class="col-md-4">
+                            <div class="widget subscribe-widget">
+                                <h3 class="text-transform-none ls-0 border-bottom d-inline-block mb-5">Subscribe to Our Newsletter</h3>
+                                <p>Get Important News, Amazing Offers &amp; Inside Scoops weekly right to your Inbox.</p>
+                                <form id="widget-subscribe-form" action="include/subscribe.php" method="post" class="mb-0">
+                                    <div class="input-group mx-auto">
+                                        <input type="email" name="email" class="form-control" placeholder="Enter your Email" required>
+                                        <button class="btn" type="submit"><i class="bi-arrow-right"></i></button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="widget widget_links">
+                                <h3>Contact Us</h3>
+                                <ul>
+                                    <li><a href="mailto:info@ficus.com">info@ficus.com</a></li>
+                                    <li><a href="tel:+0011122233">+0011122233</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="widget widget_links">
+                                <h3>Follow Us</h3>
+                                <ul>
+                                    <li><a href="https://facebook.com">Facebook</a></li>
+                                    <li><a href="https://twitter.com">Twitter</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div id="copyrights" style="border-top: 1px solid rgba(255,255,255,.2)">
+                <div class="container">
+                    <div class="row col-mb-30">
+                        <div class="col-md-6 text-center text-md-start">
+                            Copyrights &copy; 2023 All Rights Reserved by Ficus Inc.
+                        </div>
+                        <div class="col-md-6 text-center text-md-end">
+                            <a href="#" class="text-light op-03 h-op-05"><u>Terms of Use</u></a> / <a href="#" class="text-light op-03 h-op-05"><u>Privacy Policy</u></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div><!-- #wrapper end -->
+
+    <!-- JavaScripts -->
+    <script src="/js/plugins.min.js"></script>
+    <script src="/js/functions.bundle.js"></script>
+
+</body>
+</html>

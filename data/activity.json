@@ -23,5 +23,112 @@
     "datetime": "2024-09-07T07:13:02.899Z",
     "username": "naveh6",
     "type": "login"
+  },
+  {
+    "datetime": "2024-09-07T18:38:25.221Z",
+    "username": "naveh6",
+    "type": "login"
+  },
+  {
+    "datetime": "2024-09-07T18:38:48.406Z",
+    "username": "naveh6",
+    "type": "login"
+  },
+  {
+    "datetime": "2024-09-07T19:01:22.372Z",
+    "username": "naveh6",
+    "type": "add-to-cart"
+  },
+  {
+    "datetime": "2024-09-07T19:01:51.503Z",
+    "username": "admin",
+    "type": "login"
+  },
+  {
+    "datetime": "2024-09-07T19:02:50.812Z",
+    "username": "admin",
+    "type": "add-to-cart"
+  },
+  {
+    "datetime": "2024-09-07T19:28:05.977Z"
+  },
+  {
+    "datetime": "2024-09-07T19:28:06.948Z"
+  },
+  {
+    "datetime": "2024-09-07T19:28:07.990Z"
+  },
+  {
+    "datetime": "2024-09-07T19:28:08.351Z"
+  },
+  {
+    "datetime": "2024-09-07T20:12:40.167Z",
+    "username": "admin",
+    "type": "login"
+  },
+  {
+    "datetime": "2024-09-07T20:13:09.335Z"
+  },
+  {
+    "datetime": "2024-09-07T20:13:12.550Z"
+  },
+  {
+    "datetime": "2024-09-07T20:13:12.732Z"
+  },
+  {
+    "datetime": "2024-09-07T20:13:16.211Z"
+  },
+  {
+    "datetime": "2024-09-07T20:13:24.397Z"
+  },
+  {
+    "datetime": "2024-09-07T20:15:54.284Z",
+    "username": "admin",
+    "type": "add-to-cart"
+  },
+  {
+    "datetime": "2024-09-07T20:18:46.506Z",
+    "username": "admin",
+    "type": "add-to-cart"
+  },
+  {
+    "datetime": "2024-09-07T20:22:04.807Z",
+    "username": "admin",
+    "type": "add-to-cart"
+  },
+  {
+    "datetime": "2024-09-07T20:22:08.272Z",
+    "username": "admin",
+    "type": "logout"
+  },
+  {
+    "datetime": "2024-09-07T20:22:17.023Z",
+    "username": "admin",
+    "type": "login"
+  },
+  {
+    "datetime": "2024-09-07T20:22:27.206Z",
+    "username": "admin",
+    "type": "add-to-cart"
+  },
+  {
+    "datetime": "2024-09-07T20:29:19.252Z",
+    "username": "admin",
+    "type": "checkout"
+  },
+  {
+    "datetime": "2024-09-08T00:33:08.238Z",
+    "username": "naveh6",
+    "type": "login"
+  },
+  {
+    "datetime": "2024-09-08T01:44:02.814Z",
+    "username": "naveh6",
+    "type": "add-to-cart"
+  },
+  {
+    "datetime": "2024-09-08T02:21:42.753Z",
+    "username": "naveh6",
+    "type": "add-to-cart"
   }
 ]

@@ -7,24 +7,24 @@
     <meta name="author" content="SemiColonWeb">
     <meta name="description" content="Register for an account with Ficus - Sustainable Goods.">
 
-	<!-- Font Imports -->
-	<link rel="stylesheet" href="https://use.typekit.net/aay8rzy.css">
+    <!-- Font Imports -->
+    <link rel="stylesheet" href="https://use.typekit.net/aay8rzy.css">
 
-	<!-- Core Style -->
-	<link rel="stylesheet" href="css/style.css">
+    <!-- Core Style -->
+    <link rel="stylesheet" href="css/style.css">
 
-	<!-- Font Icons -->
-	<link rel="stylesheet" href="css/font-icons.css">
+    <!-- Font Icons -->
+    <link rel="stylesheet" href="css/font-icons.css">
 
-	<!-- Plugins/Components CSS -->
-	<link rel="stylesheet" href="css/swiper.css">
+    <!-- Plugins/Components CSS -->
+    <link rel="stylesheet" href="css/swiper.css">
 
-	<!-- Niche Demos -->
-	<link rel="stylesheet" href="/css/skincare.css">
+    <!-- Niche Demos -->
+    <link rel="stylesheet" href="/css/skincare.css">
 
-	<!-- Custom CSS -->
-	<link rel="stylesheet" href="css/custom.css">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/custom.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Document Title -->
     <title>Register | Ficus - Sustainable Goods</title>
@@ -103,13 +103,34 @@
                                 <h3 class="text-center fs-2 font-body">Register</h3>
                                 <h3 class="text-center fs-5 font-body">Create your account</h3>
 
+                                <!-- Error message display block -->
+                                <% if (errors && errors.length > 0) { %>
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            <% errors.forEach(function(error) { %>
+                                                <li><%= error.msg %></li>
+                                            <% }) %>
+                                        </ul>
+                                    </div>
+                                <% } %>
+
                                 <div class="row">
                                     <div class="col-12 form-group">
-                                        <input type="text" id="username" name="username" placeholder="Username" class="form-control rounded-0 bg-color-2" required>
+                                        <input type="text" id="username" name="username" placeholder="Username" class="form-control rounded-0 bg-color-2" value="<%= typeof username !== 'undefined' ? username : '' %>" required>
+                                        <% if (typeof errors !== 'undefined') { 
+                                            const usernameError = errors.find(err => err.param === 'username');
+                                            if (usernameError) { %>
+                                                <div class="text-danger"><%= usernameError.msg %></div>
+                                        <% }} %>
                                     </div>
 
                                     <div class="col-12 form-group">
                                         <input type="password" id="password" name="password" placeholder="Password" class="form-control rounded-0 bg-color-2" required>
+                                        <% if (typeof errors !== 'undefined') { 
+                                            const passwordError = errors.find(err => err.param === 'password');
+                                            if (passwordError) { %>
+                                                <div class="text-danger"><%= passwordError.msg %></div>
+                                        <% }} %>
                                     </div>
 
                                     <div class="col-12 form-group text-center">
@@ -118,7 +139,7 @@
                                 </div>
                             </form>
 
-                            <!-- Error message display -->
+                            <!-- Error message display if general error -->
                             <% if (typeof error !== 'undefined') { %>
                                 <div class="text-center text-danger mt-3"><%= error %></div>
                             <% } %>
