@@ -15,3 +15,79 @@
 	color: white;
   }
   
+/* .profile-icon {
+    position: relative;
+} */
+
+/* Profile Wrapper: Ensure both icon and menu are in one interactive area */
+.profile-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+/* Ensure the profile greeting is inline */
+.profile-greeting {
+    display: block;
+    padding: 0px 0px;
+    font-size: 16px;
+    white-space: nowrap; /*Ensures it doesn't wrap*/
+}
+
+/* Hide the menu by default */
+.profile-hover-menu {
+    display: none;
+    position: absolute;
+    top: 100%; 
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    z-index: 9999;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Add bold and color when hovering a category in the shop filter */
+.shop-filter{
+    font-weight: bold;
+    color: #4e856b;
+}
+
+/* Show the menu on hover over the wrapper (icon or menu) */
+.profile-wrapper:hover .profile-hover-menu {
+    display: block;
+}
+
+/* Add padding to prevent the menu from collapsing too soon */
+.profile-hover-menu:hover {
+    display: block;
+}
+
+/* Add styles for the dropdown */
+.profile-hover-menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0 0;
+}
+
+.profile-hover-menu ul li {
+    margin: 5px 0;
+}
+
+.profile-hover-menu ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.profile-hover-menu ul li a:hover {
+    color: #4e856b;
+}
+
+/* .profile-link {
+    padding: 5px;
+} */
+
+.quantity-input {
+    width: 60px; /* Adjust the width as needed */
+    text-align: center;
+}
+

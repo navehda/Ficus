@@ -48,8 +48,7 @@
                         <ul class="menu-container">
                             <li class="menu-item"><a class="menu-link" href="/"><div>Home</div></a></li>
                             <li class="menu-item"><a class="menu-link" href="/shop"><div>Shop</div></a></li>
-                            <li class="menu-item"><a class="menu-link" href="/faqs"><div>FAQs</div></a></li>
-                            <li class="menu-item"><a class="menu-link" href="/cart"><div>Cart</div></a></li>
+							<li class="menu-item"><a class="menu-link" href="contact"><div>Contact Us</div></a></li>
                         </ul>
                     </nav>
 
@@ -61,9 +60,29 @@
                     <div class="col-lg-5 d-flex justify-content-end">
                         <div class="header-misc">
                             <!-- User Account -->
-                            <div class="header-misc-icon me-lg-4">
-                                <a href="/login"><i class="bi-person-circle"></i></a>
-                            </div>
+							<div class="header-misc-icon me-lg-4 profile-icon">									<% if (username) { %>
+								<!-- If user is logged in, show profile link -->
+								<div class="profile-wrapper">
+									<a href="/profile" class="profile-link">
+										<i class="bi-person-circle"></i>
+									</a>
+									<!-- Hover menu with username, profile link, and logout -->
+									<div class="profile-hover-menu">
+										<span class="profile-greeting">Hi <strong><%= username %></strong></span>
+										<ul>
+											<li><a href="/profile">Profile</a></li>
+                                            <li><a href="/wishlist">Wishlist</a></li>
+											<li><a href="/logout">Logout</a></li>
+										</ul>
+									</div>
+								</div>
+							<% } else { %>
+								<!-- If user is not logged in, redirect to login -->
+								<a href="/login" class="profile-link">
+									<i class="bi-person-circle"></i>
+								</a>
+							<% } %>
+						</div>
                         </div>
                     </div>
 
@@ -82,14 +101,14 @@
                             <h3 class="text-center fs-2 font-body">User Profile</h3>
 
                             <!-- Error and Success Messages -->
-                                <% if (error) { %>
-                                    <div class="alert alert-danger text-center"><%= error %></div>
-                                <% } %>
+                            <% if (error) { %>
+                                <div class="alert alert-danger text-center"><%= error %></div>
+                            <% } %>
 
-                                <% if (typeof success !== 'undefined') { %>
-                                    <div class="alert alert-success text-center"><%= success %></div>
-                                <% } %>
-
+                            <% if (success) { %>
+                                <div class="alert alert-success text-center"><%= success %></div>
+                            <% } %>
+                                                                
 
                             <!-- User Profile Form -->
                             <form action="/profile" method="post">

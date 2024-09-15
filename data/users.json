@@ -1,8 +1,9 @@
 [
   {
     "username": "naveh1",
-    "password": "1",
-    "rememberMe": false
+    "password": "navehtest1",
+    "rememberMe": false,
+    "address": ""
   },
   {
     "username": "naveh1",
@@ -21,7 +22,7 @@
   },
   {
     "username": "admin",
-    "password": "navehtest4",
+    "password": "admin",
     "rememberMe": false
   },
   {

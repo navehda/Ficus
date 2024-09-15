@@ -5,7 +5,7 @@
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta http-equiv="x-ua-compatible" content="IE=edge">
 	<meta name="author" content="SemiColonWeb">
-	<meta name="description" content="Create Skincare Store &amp; Beauty Products Websites with Canvas Template. Get Canvas to build powerful websites easily with the Highly Customizable &amp; Best Selling Bootstrap Template, today.">
+	<meta name="description" content="Ficus - Sustainable Goods.">
 
 	<!-- Font Imports -->
 	<link rel="stylesheet" href="https:// hrefuse.typekit.net/aay8rzy.css">
@@ -56,10 +56,9 @@
 					<nav class="primary-menu top-primary-menu col-lg-5 order-last order-lg-first mobile-menu-off-canvas">
 
 						<ul class="menu-container">
-							<li class="menu-item current"><a class="menu-link" href="index"><div>Home</div></a></li>
+							<li class="menu-item current"><a class="menu-link" href="/"><div>Home</div></a></li>
 							<li class="menu-item"><a class="menu-link" href="shop"><div>Products</div></a></li>
-							<li class="menu-item"><a class="menu-link" href="faqs"><div>FAQs</div></a></li>
-							<li class="menu-item"><a class="menu-link" href="cart"><div>Cart</div></a></li>
+							<li class="menu-item"><a class="menu-link" href="contact"><div>Contact Us</div></a></li>
 							<li class="menu-item d-block d-lg-none"><a class="menu-link" href="contact"><div>Contact</div></a></li>
 						</ul>
 
@@ -88,9 +87,29 @@
 
 							 <!-- Top Account
 							============================================= -->
-							<div class="header-misc-icon me-lg-4">
-								<a href="login"><i class="bi-person-circle"></i></a>
-							</div><!-- top-Account end -->
+							<div class="header-misc-icon me-lg-4 profile-icon">									<% if (username) { %>
+								<!-- If user is logged in, show profile link -->
+								<div class="profile-wrapper">
+									<a href="/profile" class="profile-link">
+										<i class="bi-person-circle"></i>
+									</a>
+									<!-- Hover menu with username, profile link, and logout -->
+									<div class="profile-hover-menu">
+										<span class="profile-greeting">Hi <strong><%= username %></strong></span>
+										<ul>
+											<li><a href="/profile">Profile</a></li>
+											<li><a href="/wishlist">Wishlist</a></li>
+											<li><a href="/logout">Logout</a></li>
+										</ul>
+									</div>
+								</div>
+							<% } else { %>
+								<!-- If user is not logged in, redirect to login -->
+								<a href="/login" class="profile-link">
+									<i class="bi-person-circle"></i>
+								</a>
+							<% } %>
+						</div>
 
 							<!-- Top Cart
 							============================================= -->
@@ -165,84 +184,6 @@
 							</button>
 						</div>
 
-						<!-- Primary Navigation
-						============================================= -->
-						<nav class="primary-menu main-primary-menu w-100 with-arrows">
-
-							<ul class="menu-container justify-content-between">
-								<li class="menu-item"><a class="menu-link" href="shop"><div>New Collections</div></a></li>
-								<li class="menu-item mega-menu mega-menu-small"><a class="menu-link" href="shop"><div>Shop for Skin</div></a>
-									<div class="mega-menu-content">
-										<div class="row g-0 align-items-stretch">
-											<a href="shop" class="col-lg-4 d-none d-lg-flex imagescale" style="background: linear-gradient(to bottom,rgba(255,255,255,0.001) 25%,var(--bs-danger) 100%), url('images/megamenu.jpg') center center / cover;">
-												<div class="bg-overlay">
-													<div class="bg-overlay-content justify-content-center align-items-end">
-														<div class="text-white op-1 border-bottom d-inline-block all-ts mb-2" data-hover-animate="op-1 scale-lg"  data-hover-animate-out="op-1" data-hover-parent=".bg-overlay">View Products</div>
-													</div>
-												</div>
-											</a>
-											<div class="sub-menu-container mega-menu-column col">
-												<div class="row d-md-flex p-md-4">
-													<div class="col-md-6">
-														<div class="menu-item mb-md-2">
-															<a href="#" class="menu-link">
-																<h4 class="mb-1">Online Orders</h4>
-																<p class="mb-0 fw-normal text-smaller text-black-50">Authoritatively negotiate multimedia based niches.</p>
-															</a>
-														</div>
-														<div class="menu-item mb-md-2">
-															<a href="#" class="menu-link">
-																<h4 class="mb-1">Premium Quality</h4>
-																<p class="mb-0 fw-normal text-smaller text-black-50">Rapidiously pontificate quality functionalities.</p>
-															</a>
-														</div>
-														<div class="menu-item">
-															<a href="#" class="menu-link">
-																<h4 class="mb-1">100% Organic</h4>
-																<p class="mb-0 fw-normal text-smaller text-black-50">Schemas without inexpensive through outsourcing.</p>
-															</a>
-														</div>
-													</div>
-													<div class="col-md-6">
-														<div class="menu-item mb-md-2">
-															<a href="#" class="menu-link">
-																<h4 class="mb-1">Reusable Products</h4>
-																<p class="mb-0 fw-normal text-smaller text-black-50">Compellingly promote holistic growth strategies.</p>
-															</a>
-														</div>
-														<div class="menu-item mb-md-2">
-															<a href="#" class="menu-link">
-																<h4 class="mb-1">100% Genuine</h4>
-																<p class="mb-0 fw-normal text-smaller text-black-50">Seamlessly reconceptualize extensive growth.</p>
-															</a>
-														</div>
-														<div class="menu-item">
-															<a href="#" class="menu-link">
-																<h4 class="mb-1">Unisex Products</h4>
-																<p class="mb-0 fw-normal text-smaller text-black-50">Open-source web-readiness. Enthusiastically under.</p>
-															</a>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</li>
-								<li class="menu-item"><a class="menu-link" href="shop"><div>Shop for Hair</div></a>
-									<ul class="sub-menu-container">
-										<li class="menu-item"><a class="menu-link" href="shop"><div>Most Popular</div></a></li>
-										<li class="menu-item"><a class="menu-link" href="shop"><div>Latest Items</div></a></li>
-										<li class="menu-item"><a class="menu-link" href="shop"><div>New Arrivals</div></a></li>
-										<li class="menu-item"><a class="menu-link" href="shop"><div>View All</div></a></li>
-									</ul>
-								</li>
-								<li class="menu-item"><a class="menu-link" href="shop"><div>Up to 40% Sale</div></a></li>
-								<li class="menu-item"><a class="menu-link" href="shop"><div>Accessories Items</div></a></li>
-								<li class="menu-item"><a class="menu-link" href="shop"><div>Our Farmhouse</div></a></li>
-								<li class="menu-item"><a class="menu-link" href="contact"><div>Contact</div></a></li>
-							</ul>
-
-						</nav><!-- #primary-menu end -->
 					</div>
 				</div>
 			</div>
@@ -258,7 +199,8 @@
 
 					<div class="page-title-content mw-xs">
 						<h1>Products</h1>
-						<p class="color text-larger mt-4 mb-0">Dynamic ways to display under-the-fold Media Uniquely aggregate cross-media expertise.</p>
+						<p class="color text-larger mt-4 mb-0">Explore the products we love so much and find your perfect match.</p>
+					
 					</div>
 
 				</div>
@@ -278,16 +220,16 @@
 
 						<div class="col-md-3 order-2 order-md-1">
 
-							<button type="button" class="button-filter button button-border border-color m-0 color h-bg-color h-text-light w-100">
+							<!-- <button type="button" class="button-filter button button-border border-color m-0 color h-bg-color h-text-light w-100">
 								<span>Show Filter <i class="bi-arrow-down me-0 ms-2"></i> </span>
-								<span><i class="bi-arrow-up"></i> Hide Filter</span>
+								<span><i class="bi-arrow-up"></i> Hide Filter</span> -->
 							</button>
 
 						</div>
 
 						<div class="col-12 col-md-auto order-1 order-md-2 mb-2 mb-md-0">
 							<div id="shop-filter-sorting" class="dropdown border-0">
-								<button type="button" id="shop-filter-btn" class="button button-border border-color m-0 color h-bg-color h-text-light dropdown-toggle px-5 w-100 text-center" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="true" data-bs-offset="0, -1">
+								<!-- <button type="button" id="shop-filter-btn" class="button button-border border-color m-0 color h-bg-color h-text-light dropdown-toggle px-5 w-100 text-center" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="true" data-bs-offset="0, -1">
 									Sorting
 								</button>
 
@@ -295,7 +237,7 @@
 									<li><a href="#" class="dropdown-item" data-sort-by="name_az"><span>A - Z Alphabetically</span></a></li>
 									<li><a href="#" class="dropdown-item" data-sort-by="name_za"><span>Z - A Alphabetically</span></a></li>
 									<li><a href="#" class="dropdown-item" data-sort-by="price_lh"><span>Least Expensive</span></a></li>
-									<li><a href="#" class="dropdown-item" data-sort-by="price_hl"><span>Most Expensive</span></a></li>
+									<li><a href="#" class="dropdown-item" data-sort-by="price_hl"><span>Most Expensive</span></a></li> -->
 								</ul>
 							</div>
 
@@ -305,27 +247,26 @@
 
 					<div class="row">
 						<div class="col-md-3 skincare-filter sticky-sidebar-wrap">
-							<ul class="list-unstyled items-nav sticky-sidebar">
-								<li><a href="#" class="text-dark font-body">Men</a></li>
-								<li><a href="#" class="text-dark font-body">Women</a></li>
-							</ul>
-							<hr>
-							<ul class="pt-4 list-unstyled position-relative ist-unstyled items-nav shop-filter custom-filter font-body" data-container="#shop" data-active-class="active-filter">
+							<class="list-unstyled items-nav sticky-sidebar">
+								<p class="color text-larger mt-4 mb-0">Filter By Categories</p>
+								
+							<ul class="pt-4 list-unstyled position-relative items-nav shop-filter custom-filter font-body" data-container="#shop" data-active-class="active-filter">
 								<li class="widget-filter-reset active-filter"><a href="#" class="text-danger" data-filter="*">Clear</a></li>
-								<li class="mb-1 d-flex justify-content-between align-items-center"><a href="#" data-filter=".sf-face">Face</a><div class="shop-filter-count"></div></li>
-								<li class="mb-1 d-flex justify-content-between align-items-center"><a href="#" data-filter=".sf-body">Body</a><div class="shop-filter-count"></div></li>
-								<li class="mb-1 d-flex justify-content-between align-items-center"><a href="#" data-filter=".sf-eyes">Eyes</a><div class="shop-filter-count"></div></li>
-								<li class="mb-1 d-flex justify-content-between align-items-center"><a href="#" data-filter=".sf-makeup">Makeup</a><div class="shop-filter-count"></div></li>
-								<li class="mb-1 d-flex justify-content-between align-items-center"><a href="#" data-filter=".sf-ayurvedic">Ayurvedic</a><div class="shop-filter-count"></div></li>
-								<li class="mb-1 d-flex justify-content-between align-items-center"><a href="#" data-filter=".sf-hair">Hair</a><div class="shop-filter-count"></div></li>
-								<li class="mb-1 d-flex justify-content-between align-items-center"><a href="#" data-filter=".sf-lotions">Moisturizers &amp; Lotions</a><div class="shop-filter-count"></div></li>
-								<li class="mb-1 d-flex justify-content-between align-items-center"><a href="#" data-filter=".sf-lips">Lips</a><div class="shop-filter-count"></div></li>
+								<li class="mb-1 d-flex justify-content-between align-items-center">
+									<a href="#" data-filter=".body-and-bath">Body and Bath</a><div class="shop-filter"></div>
+								</li>
+								<li class="mb-1 d-flex justify-content-between align-items-center">
+									<a href="#" data-filter=".clothing">Clothing</a><div class="shop-filter"></div>
+								</li>
+								<li class="mb-1 d-flex justify-content-between align-items-center">
+									<a href="#" data-filter=".lifestyle">Lifestyle</a><div class="shop-filter"></div>
+								</li>
+								<li class="mb-1 d-flex justify-content-between align-items-center">
+									<a href="#" data-filter=".plants">Plants</a><div class="shop-filter"></div>
+								</li>
 							</ul>
 
-							<hr class="my-5">
-
-
-							<div class="d-flex align-items-center mt-5">
+							<!-- <div class="d-flex align-items-center mt-5">
 								<h5 class="mb-0 h6 font-body fw-normal">Filter by Price:</h5>
 								<div class="d-flex text-smaller ms-auto op-07">
 									<div class="price-range-from"></div>
@@ -333,7 +274,7 @@
 									<div class="price-range-to"></div>
 								</div>
 							</div>
-							<input class="price-range">
+							<input class="price-range"> -->
 
 						</div>
 
@@ -341,29 +282,37 @@
 							<div id="shop" class="row shop grid-container" data-layout="fitRows">
 								<% if (products.length > 0) { %>
 									<% products.forEach(product => { %>
-										<div class="col-lg-4 col-md-6 mb-4 product <%= product.category %>">
+										<div class="col-lg-4 col-md-6 mb-4 product <%= product.category.toLowerCase().replace(/\s+/g, '-') %>">
 											<div class="grid-inner">
 												<div class="product-image">
-													<a href="/single/<%= product.id %>"><img src="<%= product.image %>" alt="<%= product.name %>"></a>
-													<% if (product.sale) { %>
-														<div class="sale-flash badge bg-color rounded-0 fw-normal p-2">Sale!</div>
-													<% } %>
-													<div class="bg-overlay">
-														<div class="bg-overlay-content align-items-end justify-content-end" data-hover-animate="fadeIn">
-															<form action="/cart/add" method="POST" style="display: inline;">
-																<input type="hidden" name="productId" value="<%= product.id %>">
-																<input type="hidden" name="quantity" value="1">
-																<button type="submit" class="btn bg-color bg-opacity-75 text-light me-2 z-2">
-																	<i class="bi-basket"></i> Add to Cart
-																</button>
-															</form>
-															<a href="/single/<%= product.id %>" class="d-block position-absolute top-0 start-0 w-100 h-100 z-1">
-																<span class="visually-hidden">Product Link</span>
-															</a>
+													<div class="product-image">
+														<a href="/single/<%= product.id %>" class="d-block w-100 h-100">
+															<img src="<%= product.image %>" alt="<%= product.name %>">
+														</a>
+													
+														<!-- Place buttons outside the anchor tag to avoid interference -->
+														<div class="bg-overlay">
+															<div class="bg-overlay-content align-items-end justify-content-end" data-hover-animate="fadeIn">
+																<!-- Add to Cart form -->
+																<form action="/cart/add" method="POST" style="display: inline-block;">
+																	<input type="hidden" name="productId" value="<%= product.id %>">
+																	<input type="hidden" name="quantity" value="1">
+																	<button type="submit" class="btn bg-color bg-opacity-75 text-light me-2 z-2">
+																		<i class="bi-basket"></i> Add to Cart
+																	</button>
+																</form>
+													
+																<!-- Add to Wishlist form -->
+																<form action="/wishlist/add" method="POST" style="display: inline-block;">
+																	<input type="hidden" name="productId" value="<%= product.id %>">
+																	<button type="submit" class="btn btn-outline-secondary me-2 z-2">
+																		<i class="bi-heart"></i> Add to Wishlist
+																	</button>
+																</form>
+															</div>
 														</div>
 													</div>
-												</div>
-												<div class="product-desc text-center">
+												</div>																									<div class="product-desc text-center">
 													<div class="product-title">
 														<h3><a href="/single/<%= product.id %>" class="color"><%= product.name %></a></h3>
 													</div>
@@ -401,7 +350,7 @@
 									</div>
 								</div>
 
-								<div class="col-lg-4 col-md-6 mb-4 product sf-face sf-ayurvedic sf-makeup">
+								<div class="col-lg-4 col-md-6 mb-4 product sf-face sf-plants">
 									<div class="grid-inner">
 										<div class="product-image mb-2">
 											<a href="single"><img src="images/products/12.jpg" alt="..."></a>
@@ -538,7 +487,7 @@
 					<div class="container-fluid py-6">
 						<div class="row justify-content-center mx-auto mw-md gx-5">
 							<div class="col">
-								<p class="h6 mb-0 text-light">Conveniently network effective total linkage via intermandated opportunities. Distinctively <a class="text-light fw-bold" href="mailto:noreply@canvas.com"><u>noreply@canvas.com</u></a> premium products.</p>
+								<p class="h6 mb-0 text-light">Conveniently network effective total linkage via intermandated opportunities. Distinctively <a class="text-light fw-bold" href="mailto:noreply@ficus.ecostore.com"><u>noreply@ficus.ecostore.com</u></a> premium products.</p>
 							</div>
 							<div class="col-auto mt-3 mt-md-0">
 								<h2 class="fw-bold mb-0 display-6 border-bottom border-white d-inline-block"><a class="text-white" href="tel:09876543211">(+0) 1234 567890</a></h2>
@@ -677,7 +626,7 @@
 								<h3 class="text-transform-none ls-0 border-bottom d-inline-block mb-5">Contact Us</h3>
 
 								<ul>
-									<li class="mb-2"><a class="ls-1 text-light" href="mailto:noreply@canvas.com">noreply@canvas.com</a></li>
+									<li class="mb-2"><a class="ls-1 text-light" href="mailto:noreply@ficus.ecostore.com">noreply@ficus.ecostore.com</a></li>
 									<li class="mb-2"><a class="ls-1 text-light" href="tel:+0011122233">0-111-222-33</a></li>
 									<li><a class="ls-1 text-light" href="login">Sign In/Register</a></li>
 								</ul>
@@ -713,7 +662,7 @@
 					<div class="row col-mb-30">
 
 						<div class="col-md-6 text-center text-md-start">
-							Copyrights &copy; 2023 All Rights Reserved by Canvas Inc.
+							Copyrights &copy; 2023 All Rights Reserved by Ficus. Inc.
 						</div>
 
 						<div class="col-md-6 text-center text-md-end">
@@ -877,3 +826,5 @@
 
 </body>
 </html>
+
+

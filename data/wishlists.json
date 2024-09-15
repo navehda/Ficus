@@ -1,0 +1,28 @@
+{
+  "admin": [
+    {
+      "id": 1,
+      "name": "32 oz Wide Mouth with Flex Straw Cap",
+      "description": "A 32 oz Wide Mouth water bottle with our leakproof Flex Straw Cap—easy to fill, easy to drink. Open it up, add your ice, and flip to sip. The insulated stainless steel keeps it cold for up to 24 hours.",
+      "price": 44.99,
+      "image": "images/products/28.jpg",
+      "category": "Lifestyle"
+    },
+    {
+      "id": 8,
+      "name": "Tainyc Polish",
+      "description": " Tainyc Polish is a blend of natural oils that are perfect for a relaxing massage. The serum is made from a blend of natural oils, including bergamot, lavender, and chamomile.",
+      "price": 11.9,
+      "image": "images/products/14.jpg",
+      "category": "Lifestyle"
+    },
+    {
+      "id": 4,
+      "name": "Stochkholm Skincare & Moisture Hair Oil",
+      "description": "A blend of natural oils that are perfect for a relaxing massage. The serum is made from a blend of natural oils, including bergamot, lavender, and chamomile.",
+      "price": 7.5,
+      "image": "images/products/15.jpg",
+      "category": "Body and Bath"
+    }
+  ]
+}

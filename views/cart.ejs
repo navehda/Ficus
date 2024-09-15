@@ -57,8 +57,7 @@
 						<ul class="menu-container">
 							<li class="menu-item current"><a class="menu-link" href="index"><div>Home</div></a></li>
 							<li class="menu-item"><a class="menu-link" href="shop"><div>Products</div></a></li>
-							<li class="menu-item"><a class="menu-link" href="faqs"><div>FAQs</div></a></li>
-							<li class="menu-item"><a class="menu-link" href="cart"><div>Cart</div></a></li>
+							<li class="menu-item"><a class="menu-link" href="contact"><div>Contact Us</div></a></li>
 							<li class="menu-item d-block d-lg-none"><a class="menu-link" href="logout"><div>Logout</div></a></li>
 						</ul>
 
@@ -87,11 +86,30 @@
 
 							 <!-- Top Account
 							============================================= -->
-							<div class="header-misc-icon me-lg-4">
-								<a href="login"><i class="bi-person-circle"></i></a>
-							</div><!-- top-Account end -->
-
-							<!-- Top Cart
+							<div class="header-misc-icon me-lg-4 profile-icon">									<% if (username) { %>
+								<!-- If user is logged in, show profile link -->
+								<div class="profile-wrapper">
+									<a href="/profile" class="profile-link">
+										<i class="bi-person-circle"></i>
+									</a>
+									<!-- Hover menu with username, profile link, and logout -->
+									<div class="profile-hover-menu">
+										<span class="profile-greeting">Hi <strong><%= username %></strong></span>
+										<ul>
+											<li><a href="/profile">Profile</a></li>
+											<li><a href="/wishlist">Wishlist</a></li>
+											<li><a href="/logout">Logout</a></li>
+										</ul>
+									</div>
+								</div>
+							<% } else { %>
+								<!-- If user is not logged in, redirect to login -->
+								<a href="/login" class="profile-link">
+									<i class="bi-person-circle"></i>
+								</a>
+							<% } %>
+						</div>
+					<!-- Top Cart
 							============================================= -->
 							<div id="top-cart" class="header-misc-icon me-lg-4">
 								<a href="#" id="top-cart-trigger"><i class="bi-basket"></i></a>
@@ -164,84 +182,6 @@
 							</button>
 						</div>
 
-						<!-- Primary Navigation
-						============================================= -->
-						<nav class="primary-menu main-primary-menu w-100 with-arrows">
-
-							<ul class="menu-container justify-content-between">
-								<li class="menu-item"><a class="menu-link" href="shop"><div>New Collections</div></a></li>
-								<li class="menu-item mega-menu mega-menu-small"><a class="menu-link" href="shop"><div>Shop for Skin</div></a>
-									<div class="mega-menu-content">
-										<div class="row g-0 align-items-stretch">
-											<a href="shop" class="col-lg-4 d-none d-lg-flex imagescale" style="background: linear-gradient(to bottom,rgba(255,255,255,0.001) 25%,var(--bs-danger) 100%), url('/images/megamenu.jpg') center center / cover;">
-												<div class="bg-overlay">
-													<div class="bg-overlay-content justify-content-center align-items-end">
-														<div class="text-white op-1 border-bottom d-inline-block all-ts mb-2" data-hover-animate="op-1 scale-lg"  data-hover-animate-out="op-1" data-hover-parent=".bg-overlay">View Products</div>
-													</div>
-												</div>
-											</a>
-											<div class="sub-menu-container mega-menu-column col">
-												<div class="row d-md-flex p-md-4">
-													<div class="col-md-6">
-														<div class="menu-item mb-md-2">
-															<a href="#" class="menu-link">
-																<h4 class="mb-1">Online Orders</h4>
-																<p class="mb-0 fw-normal text-smaller text-black-50">Authoritatively negotiate multimedia based niches.</p>
-															</a>
-														</div>
-														<div class="menu-item mb-md-2">
-															<a href="#" class="menu-link">
-																<h4 class="mb-1">Premium Quality</h4>
-																<p class="mb-0 fw-normal text-smaller text-black-50">Rapidiously pontificate quality functionalities.</p>
-															</a>
-														</div>
-														<div class="menu-item">
-															<a href="#" class="menu-link">
-																<h4 class="mb-1">100% Organic</h4>
-																<p class="mb-0 fw-normal text-smaller text-black-50">Schemas without inexpensive through outsourcing.</p>
-															</a>
-														</div>
-													</div>
-													<div class="col-md-6">
-														<div class="menu-item mb-md-2">
-															<a href="#" class="menu-link">
-																<h4 class="mb-1">Reusable Products</h4>
-																<p class="mb-0 fw-normal text-smaller text-black-50">Compellingly promote holistic growth strategies.</p>
-															</a>
-														</div>
-														<div class="menu-item mb-md-2">
-															<a href="#" class="menu-link">
-																<h4 class="mb-1">100% Genuine</h4>
-																<p class="mb-0 fw-normal text-smaller text-black-50">Seamlessly reconceptualize extensive growth.</p>
-															</a>
-														</div>
-														<div class="menu-item">
-															<a href="#" class="menu-link">
-																<h4 class="mb-1">Unisex Products</h4>
-																<p class="mb-0 fw-normal text-smaller text-black-50">Open-source web-readiness. Enthusiastically under.</p>
-															</a>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</li>
-								<li class="menu-item"><a class="menu-link" href="shop"><div>Shop for Hair</div></a>
-									<ul class="sub-menu-container">
-										<li class="menu-item"><a class="menu-link" href="shop"><div>Most Popular</div></a></li>
-										<li class="menu-item"><a class="menu-link" href="shop"><div>Latest Items</div></a></li>
-										<li class="menu-item"><a class="menu-link" href="shop"><div>New Arrivals</div></a></li>
-										<li class="menu-item"><a class="menu-link" href="shop"><div>View All</div></a></li>
-									</ul>
-								</li>
-								<li class="menu-item"><a class="menu-link" href="shop"><div>Up to 40% Sale</div></a></li>
-								<li class="menu-item"><a class="menu-link" href="shop"><div>Accessories Items</div></a></li>
-								<li class="menu-item"><a class="menu-link" href="shop"><div>Our Farmhouse</div></a></li>
-								<li class="menu-item"><a class="menu-link" href="contact"><div>Contact</div></a></li>
-							</ul>
-
-						</nav><!-- #primary-menu end -->
 					</div>
 				</div>
 			</div>
@@ -252,154 +192,69 @@
 		============================================= -->
 		<div id="content">
 			<div class="content-wrap">
-
-				<div class="container">
-
-                    <!-- Check if Cart is Empty -->
-                    <% if (cart && cart.length > 0) { %>
-
-					<div class="row gutter-40">
-						<div class="col-xl-8">
+			  <div class="container">
+				<!-- Check if Cart is Empty -->
+				<% if (cart && cart.length > 0) { %>
+				  <div class="row gutter-40">
+					<div class="col-xl-8">
+						<form action="/cart/update" method="POST">
 							<table class="table cart mb-0">
-								<thead>
-									<tr>
-										<th class="fw-normal cart-product-thumbnail">&nbsp;</th>
-										<th class="fw-normal cart-product-name">Product</th>
-										<th class="fw-normal cart-product-price">Unit Price</th>
-										<th class="fw-normal cart-product-quantity">Quantity</th>
-										<th class="fw-normal cart-product-subtotal">Total</th>
-									</tr>
-								</thead>
-								<tbody>
-                                        <!-- Loop through each item in the cart -->
-                                    <!-- Loop through each item in the cart -->
-                                    <% cart.forEach(item => { %>
-										<tr class="cart_item">
-											<td class="cart-product-thumbnail">
-												<a href="#" class="position-relative">
-													<img class="border-0" width="64" height="64" src="<%= item.product.imageUrl %>" alt="<%= item.product.name %>">
-													 <span class="position-absolute top-0 start-0 translate-middle bg-danger rounded-circle lh-1 border border-white text-white square square-xs text-center">
-														<span class="visually-hidden">Remove Product</span>&times;
-													</span>
-												</a>
-											</td>
-	
-											<td class="cart-product-name">
-												<a class="fw-normal" href="/single/<%= item.productId %>"><%= item.product.name %></a>
-											</td>
-	
-											<td class="cart-product-price op-05">
-												<span class="amount">$<%= item.product.price.toFixed(2) %></span>
-											</td>
-	
-											<td class="cart-product-quantity cart cart-border cart-border-2">
-												<form action="/cart/update" method="POST">
-													<input type="hidden" name="productId" value="<%= item.productId %>">
-													<input type="number" name="quantity" value="<%= item.quantity %>" min="1" title="Qty" class="qty border-0">
-													<button type="submit" class="button button-small">Update Quantity</button>
-												</form>
-											</td>												
-
-											<td class="cart-product-subtotal">
-												<span class="amount">$<%= (item.product.price * item.quantity).toFixed(2) %></span>
-											</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-	
-									<tr class="cart_item">
-
-										<td class="cart-product-thumbnail">
-											<a href="#" class="position-relative">
-												<img class="border-0" width="64" height="64" src="/images/products/14.jpg" alt="...">
-												 <span class="position-absolute top-0 start-0 translate-middle bg-danger rounded-circle lh-1 border border-white text-white square square-xs text-center">
-													<span class="visually-hidden">Remove Product</span>&times;
-												</span>
-											</a>
+						<thead>
+						  <tr>
+							<th class="fw-normal cart-product-thumbnail">&nbsp;</th>
+							<th class="fw-normal cart-product-name">Product</th>
+							<th class="fw-normal cart-product-price">Unit Price</th>
+							<th class="fw-normal cart-product-quantity">Quantity</th>
+							<th class="fw-normal cart-product-subtotal">Total</th>
+						  </tr>
+						</thead>
+						<tbody>
+							<% cart.forEach(item => { %>
+								<tr class="cart_item">
+									<td class="cart-product-thumbnail">
+												  <a href="#" class="position-relative">
+								<% if (item.product) { %>
+								  <img class="border-0" width="64" height="64" src="<%= item.product.imageUrl %>" alt="<%= item.product.name %>">
+								<% } else { %>
+								  <img class="border-0" width="64" height="64" src="/images/products/default.jpg" alt="Product">
+								<% } %>
+								<span class="position-absolute top-0 start-0 translate-middle bg-danger rounded-circle lh-1 border border-white text-white square square-xs text-center">
+								  <span class="visually-hidden">Remove Product</span>&times;
+								</span>
+							  </a>
+							</td>
+		  
+							<td class="cart-product-name">
+								<a href="/single/<%= item.productId %>"><%= item.product.name %></a>
 										</td>
-
-										<td class="cart-product-name">
-											<a class="fw-normal" href="#">Clove Super Serum</a>
-										</td>
-
-										<td class="cart-product-price op-05">
-											<span class="amount">$24.99</span>
-										</td>
-
-										<td class="cart-product-quantity cart cart-border cart-border-2">
-											<div class="quantity">
-												<button type="button" class="minus"><i class="uil uil-minus"></i></button>
-												<input type="number" step="1" min="1" name="quantity" value="1" title="Qty" class="qty border-0">
-												<button type="button" class="plus"><i class="uil uil-plus"></i></button>
-											</div>
-										</td>
-
-										<td class="cart-product-subtotal">
-											<span class="amount">$<%= (item.product.price * item.quantity).toFixed(2) %></span>
-										</td>
-								</tr>
-									<tr class="cart_item">
-
-										<td class="cart-product-thumbnail">
-											<a href="#" class="position-relative">
-												<img class="border-0" width="64" height="64" src="/images/products/15.jpg" alt="...">
-												<span class="position-absolute top-0 start-0 translate-middle bg-danger rounded-circle lh-1 border border-white text-white square square-xs text-center"><span class="visually-hidden">Remove Product</span>&times;</span>
-											</a>
-										</td>
-
-										<td class="cart-product-name">
-											<a class="fw-normal" href="#">Âimtze Cream &amp; Lotions</a>
-										</td>
-
-										<td class="cart-product-price op-05">
-											<span class="amount">$13.99</span>
-										</td>
-
-										<td class="cart-product-quantity cart cart-border cart-border-2">
-											<div class="quantity">
-												<button type="button" class="minus"><i class="uil uil-minus"></i></button>
-												<input type="number" step="1" min="1" name="quantity" value="3" title="Qty" class="qty border-0">
-												<button type="button" class="plus"><i class="uil uil-plus"></i></button>
-											</div>
-										</td>
-
-										<td class="cart-product-subtotal">
-											<span class="amount">$<%= (item.product.price * item.quantity).toFixed(2) %></span>
-										</td>
-									</tr>
-									<% }); %>
-							</tbody>
-						</table>
+		  
+										<td class="cart-product-price">
+											<span class="amount">$<%= item.product.price.toFixed(2) %></span>
+													</td>
+		  
+							<td class="cart-product-quantity cart">
+							  <div class="quantity">
+								<input type="hidden" name="productId" value="<%= item.productId %>">
+								<input type="number" name="quantity" value="<%= item.quantity %>" class="qty">
+							</td>
+							<td class="cart-product-subtotal">
+								<span class="amount">$<%= (item.product.price * item.quantity).toFixed(2) %></span>
+							</td>
+						</tr>
+						<% }); %>
+					</tbody>
+						</tbody>
+					  </table>
+					  <button type="submit" class="button">Update Cart</button>
+					</form>
 					</div>
-							<tr class="cart_item">
-										<td colspan="2">
-											<div class="row gx-2">
-												<div class="col-md-8">
-													<input type="text" value="" class="form-control rounded-0 bg-color-2 text-center text-md-start" placeholder="Enter Coupon Code..">
-												</div>
-												<div class="col-md-4 mt-3 mt-md-0">
-													<a href="#" class="button button-small button-border border-color m-0 color h-bg-color h-text-light" style="--cnvs-btn-padding-y: 6px;">Apply Coupon</a>
-												</div>
-											</div>
-										</td>
-										<td colspan="3" class="text-md-end">
-											<a href="#" class="button button-small button-border border-color mt-2 m-md-0 color h-bg-color h-text-light">Update Cart</a>
-										</td>
-									</tr>
-								</tbody>
-
-							</table>
-						</div>
-
-						<div class="col-xl-4">
-							<div class="row col-mb-30">
-								<div class="col-12">
-									<div class="grid-inner bg-color bg-opacity-10 p-5 rounded-6">
-										<h5 class="fs-6 font-body fw-normal">Calculate Shipping:</h5>
-										<form class="row mb-0">
-											<div class="col-12 form-group">
-												<select class="form-select rounded-0 bg-color-2">
+          <!-- Cart Summary Section -->
+          <div class="col-xl-4">
+            <div class="grid-inner bg-color bg-opacity-10 p-5 rounded-6">
+              <h5 class="fs-6 font-body fw-normal">Calculate Shipping:</h5>
+              <form class="row mb-0">
+                <div class="col-12 form-group">
+                  <select class="form-select rounded-0 bg-color-2">
 													<option value="AX">&#197;land Islands</option>
 													<option value="AF">Afghanistan</option>
 													<option value="AL">Albania</option>
@@ -648,73 +503,56 @@
 												</select>
 											</div>
 											<div class="col-6 form-group">
-												<input type="text" class="form-control rounded-0 bg-color-2" placeholder="State / Country">
+											  <input type="text" class="form-control rounded-0 bg-color-2" placeholder="State / Country">
 											</div>
-
 											<div class="col-6 form-group">
-												<input type="text" class="form-control rounded-0 bg-color-2" placeholder="PostCode / Zip">
+											  <input type="text" class="form-control rounded-0 bg-color-2" placeholder="PostCode / Zip">
 											</div>
 											<div class="col-12 form-group">
-												<button class="button button-small button-border border-color m-0 color h-bg-color h-text-light w-100">Update Totals</button>
+											  <button class="button button-small button-border border-color m-0 color h-bg-color h-text-light w-100">Update Totals</button>
 											</div>
-										</form>
+										  </form>
+							
+										  <div class="line border-color my-4 op-02"></div>
 
-										<div class="line border-color my-4 op-02"></div>
-
-										<div class="table-responsive">
+										  <div class="table-responsive">
 											<table class="table cart cart-totals">
-												<tbody>
-													<tr class="cart_item">
-														<td class="cart-product-name">
-															Cart Subtotal:
-														</td>
-
-														<td class="cart-product-name text-end">
-															<span class="amount">$<%= cartTotal.toFixed(2) %></span>
-														</td>
-													</tr>
-													<tr class="cart_item">
-														<td class="cart-product-name">
-															Shipping:
-														</td>
-
-														<td class="cart-product-name text-end">
-															<span class="amount">Free Delivery</span>
-														</td>
-													</tr>
-													<tr class="cart_item">
-														<td class="cart-product-name">
-															Total:
-														</td>
-
-														<td class="cart-product-name text-end">
-															<span class="amount color lead fw-bold">$<%= cartTotal.toFixed(2) %></span>
-													</td>
-													</tr>
-												</tbody>
+											  <tbody>
+												<tr class="cart_item">
+												  <td class="cart-product-name">Cart Subtotal:</td>
+												  <td class="cart-product-name text-end">
+													<span class="amount">$<%= cartTotal.toFixed(2) %></span>
+												  </td>
+												</tr>
+												<tr class="cart_item">
+												  <td class="cart-product-name">Shipping:</td>
+												  <td class="cart-product-name text-end">
+													<span class="amount">Free Delivery</span>
+												  </td>
+												</tr>
+												<tr class="cart_item">
+												  <td class="cart-product-name">Total:</td>
+												  <td class="cart-product-name text-end">
+													<span class="amount color lead fw-bold">$<%= cartTotal.toFixed(2) %></span>
+												  </td>
+												</tr>
+											  </tbody>
 											</table>
-
-											<!-- <a href="/cart" class="button text-light m-0 w-100 text-center">Proceed to Checkout</a> -->
+							
+											<a href="/checkout" class="button text-light m-0 w-100 text-center">Proceed to Checkout</a>
 										</div>
+									  </div>
 									</div>
-								</div>
+								  </div>
+								<% } else { %>
+								  <div class="text-center py-5">
+									<p class="h5">Your cart is currently empty.</p>
+									<a href="/shop" class="button mt-4">Continue Shopping</a>
+								  </div>
+								<% } %>
+							  </div>
 							</div>
-						</div>
-					</div>
-
-				<% } else { %>
-
-					<!-- If the cart is empty, show this message -->
-					<div class="text-center py-5">
-						<p class="h5">Your cart is currently empty.</p>
-						<a href="/shop" class="button mt-4">Continue Shopping</a>
-					</div>
-
-				<% } %>
-
-			</div>
-		</div>
-	</div><!-- #content end -->
+						  <!-- #content end -->
 		<!-- Footer
 		============================================= -->
 		<footer id="footer" class="dark bg-black border-top-0">
@@ -750,7 +588,7 @@
 								<h3 class="text-transform-none ls-0 border-bottom d-inline-block mb-5">Contact Us</h3>
 
 								<ul>
-									<li class="mb-2"><a class="ls-1 text-light" href="mailto:noreply@canvas.com">noreply@canvas.com</a></li>
+									<li class="mb-2"><a class="ls-1 text-light" href="mailto:noreply@ficus.ecostore.com">noreply@ficus.ecostore.com</a></li>
 									<li class="mb-2"><a class="ls-1 text-light" href="tel:+0011122233">0-111-222-33</a></li>
 									<li><a class="ls-1 text-light" href="login">Sign In/Register</a></li>
 								</ul>
@@ -786,7 +624,7 @@
 					<div class="row col-mb-30">
 
 						<div class="col-md-6 text-center text-md-start">
-							Copyrights &copy; 2023 All Rights Reserved by Canvas Inc.
+							Copyrights &copy; 2023 All Rights Reserved by Ficus. Inc.
 						</div>
 
 						<div class="col-md-6 text-center text-md-end">

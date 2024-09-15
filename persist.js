@@ -6,13 +6,19 @@ const usersFilePath = path.join(__dirname, 'data', 'users.json');
 const cartsFilePath = path.join(__dirname, 'data', 'cart.json');
 const activityLogFilePath = path.join(__dirname, 'data', 'activity.json');
 const productsFilePath = path.join(__dirname, 'data', 'products.json');
+const wishlistsFilePath = path.join(__dirname, 'data', 'wishlists.json');
 
 // Helper function for reading files
 async function readFile(filePath) {
     try {
         const data = await fs.promises.readFile(filePath, 'utf8');
-        return data ? JSON.parse(data) : [];
+        return data ? JSON.parse(data) : {};
     } catch (err) {
+        // If the file doesn't exist, return an empty object
+        if (err.code === 'ENOENT') {
+            console.log(`${filePath} not found, returning empty object.`);
+            return {};
+        }
         console.error(`Error reading file from ${filePath}:`, err);
         throw err;
     }
@@ -27,6 +33,7 @@ async function writeFile(filePath, data) {
         throw err;
     }
 }
+
 
 // Users persistence
 async function getUsers() {
@@ -71,6 +78,15 @@ async function saveProducts(products) {
     await writeFile(productsFilePath, products);
 }
 
+// Wishlists persistence
+async function getWishlists() {
+    return await readFile(wishlistsFilePath);
+}
+
+async function saveWishlists(wishlists) {
+    await writeFile(wishlistsFilePath, wishlists);
+}
+
 module.exports = {
     getUsers,
     saveUsers,
@@ -79,5 +95,7 @@ module.exports = {
     logActivity,
     getProducts,
     saveProducts,
-    getActivities // Expose activity retrieval for admin purposes
+    getWishlists,   // Exported wishlist functions
+    saveWishlists,  // Exported wishlist functions
+    getActivities
 };

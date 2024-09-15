@@ -1,65 +1,184 @@
 [
   {
     "id": 1,
-    "name": "Eco-Friendly Soap",
-    "description": "A natural, eco-friendly soap bar.",
-    "price": 5.99,
-    "image": "images/products/12.jpg"
+    "name": "32 oz Wide Mouth with Flex Straw Cap",
+    "description": "A 32 oz Wide Mouth water bottle with our leakproof Flex Straw Cap—easy to fill, easy to drink. Open it up, add your ice, and flip to sip. The insulated stainless steel keeps it cold for up to 24 hours.",
+    "price": 44.99,
+    "image": "images/products/28.jpg",
+    "category": "Lifestyle"
   },
+
+
   {
     "id": 2,
-    "name": "Reusable Water Bottle",
-    "description": "A reusable water bottle made from recycled materials.",
-    "price": 15.99,
-    "image": "images/products/12.jpg"
+    "name": "Reusable Produce Bags - Organic Cotton - Set of 3",
+    "description": "These reusable cotton produce bags are the perfect alternatives to plastic fruit and veg bags. Made from durable, unbleached organic cotton, these bags will last you a lifetime, rather than a single shopping trip.",
+    "price": 7.50,
+    "image": "images/products/29.jpg",
+    "category": "Lifestyle"
   },
+
   {
     "id": 3,
-    "name": "Eco-Friendly Soap",
-    "description": "A natural, eco-friendly soap bar.",
-    "price": 5.99,
-    "image": "images/products/12.jpg"
+    "name": "Bergmont Oil Serum",
+    "description": "Soothing and Relaxing, Bergamot Oil Serum is a blend of natural oils that are perfect for a relaxing massage. The serum is made from a blend of natural oils, including bergamot, lavender, and chamomile.",
+    "price": 7.50,
+    "image": "images/products/10.jpg",
+    "category": "Body and Bath"
   },
+
   {
     "id": 4,
-    "name": "Reusable Water Bottle",
-    "description": "A reusable water bottle made from recycled materials.",
-    "price": 15.99,
-    "image": "images/products/12.jpg"
+    "name": "Stochkholm Skincare & Moisture Hair Oil",
+    "description": "A blend of natural oils that are perfect for a relaxing massage. The serum is made from a blend of natural oils, including bergamot, lavender, and chamomile.",
+    "price": 7.50,
+    "image": "images/products/15.jpg",
+    "category": "Body and Bath"
   },
+
   {
     "id": 5,
-    "name": "Eco-Friendly Soap",
-    "description": "A natural, eco-friendly soap bar.",
-    "price": 5.99,
-    "image": "images/products/12.jpg"
-  },
+    "name": "Clove Tonka Oil",
+    "description": "Clove Tonka Oil is a blend of natural oils that are perfect for a relaxing massage. The serum is made from a blend of natural oils, including clove, tonka bean, and vanilla.",
+    "price": 7.50,
+    "image": "images/products/11.jpg",
+    "category": "Body and Bath"  },
+
   {
     "id": 6,
-    "name": "Reusable Water Bottle",
-    "description": "A reusable water bottle made from recycled materials.",
-    "price": 15.99,
-    "image": "images/products/12.jpg"
+    "name": "Citrus and Cedarwood Oil",
+    "description": "Citrus and Cedarwood Oil is a blend of natural oils that are perfect for a relaxing massage. The serum is made from a blend of natural oils, including citrus, cedarwood, and lavender.",
+    "price": 7.50,
+    "image": "images/products/13.jpg",
+    "category": "Body and Bath"
   },
+
   {
     "id": 7,
-    "name": "Eco-Friendly Soap",
-    "description": "A natural, eco-friendly soap bar.",
-    "price": 5.99,
-    "image": "images/products/12.jpg"
+    "name": "Ouiao Super Serum",
+    "description": "Ouiao Super Serum is a blend of natural oils that are perfect for a relaxing massage. The serum is made from a blend of natural oils, including bergamot, lavender, and chamomile.",
+    "price": 7.50,
+    "image": "images/products/5.jpg",
+    "category": "Lifestyle"
   },
+
   {
     "id": 8,
-    "name": "Reusable Water Bottle",
-    "description": "A reusable water bottle made from recycled materials.",
-    "price": 15.99,
-    "image": "images/products/12.jpg"
-  },
+    "name": "Tainyc Polish",
+    "description": " Tainyc Polish is a blend of natural oils that are perfect for a relaxing massage. The serum is made from a blend of natural oils, including bergamot, lavender, and chamomile.",
+    "price": 11.90,
+    "image": "images/products/14.jpg",
+    "category": "Lifestyle"
+  },  
+  
   {
-    "id": 9,
-    "name": "test44",
-    "price": 44,
-    "description": "44",
-    "image": ""
-  }
+    "id": 19,
+    "name": "Mezcal Cuba Terry Shirt",
+    "description": "The Mezcal Cuba terry shirt is jacquard-woven with a cactus motif in midweight cotton terry that sumptuously soft and breathable. Tailored with a resort collar and buttons running down the front.",
+    "price": 15.99,
+    "image": "images/products/19.jpg",
+    "category": "Clothing"
+  },
+  
+  {
+    "id": 16,
+    "name": "Eldovado Viscose Shirt",
+    "description": "The Eldovado viscose shirt is an easy-going fit with a resort collar that extends into a buttoned front, patterned with a riot of hand-drawn shapes. Tailored from a breezy viscose fabric characterized by a silky soft feel, ideal for warm-weather lounging.",
+    "price": 126.00,
+    "image": "images/products/16.jpg",
+    "category": "Clothing"
+  },
+
+  
+  
+  {
+    "id": 17,
+    "name": "Galbanum Cuba Crochet Shirt",
+    "description": "The Galbanum Cuba crochet shirt features an abstract take on botanical motifs, brought to life in a heavyweight woven cotton crochet fabric. Tailored with a resort collar and buttons running down the front.",
+    "price": 110.00,
+    "image": "images/products/17.jpg",
+    "category": "Clothing"
+  },
+
+  
+  {"id": 18,
+  "name": "Azur Velour Long Sleeve",
+  "description": "The Azur Velour long sleeve is distinguished by a soft velour-knit fabric in a hue that pays homage to endless summer skies. Style details include a polo collar, chest pocket and buttoned cuffs.",
+  "price": 140.00,
+  "image": "images/products/18.jpg",
+  "category": "Clothing"
+  },
+
+{"id": 20,
+"name": "Energize Body Cleanser (500mL)",
+"description": "Chamomile, Bergamot, Rose",
+"price": 32.00,
+"image": "images/products/20.jpg",
+"category": "Body and Bath"
+},
+
+{
+  "id": 21,
+  "name": "Nourishing - Shampoo 0.6-500mL",
+  "description": "Damask Rose, Black Pepper, Sage",
+  "price": 32.00,
+  "image": "images/products/21.jpg",
+  "category": "Body and Bath"
+},
+
+{
+  "id": 22,
+  "name": "Intensive Body Cream (120mL)",
+  "description": "Rosa Damascena, Acai, Pomegranate",
+  "price": 22.00,
+  "image": "images/products/22.jpg",
+  "category": "Body and Bath"
+},
+
+{
+  "id": 23,
+  "name": "Nordic Fireside Scented Candle",
+  "description": "Smoked Musk Cedarwood and Patchouli.",
+  "price": 15.99,
+  "image": "images/products/23.jpg",
+  "category": "Lifestyle"
+},
+
+{
+  "id": 27,
+  "name": "Gradient Candle-Set of 7-Greens",
+  "description": "An assorted set of seven candles in curated colours, all carefully chosen for their ability to work equally well in a group or stand individually. The candles are Nordic Swan Ecolabel certified.",
+  "price": 23.99,
+  "image": "images/products/27.jpg",
+  "category": "Lifestyle"
+},
+
+{
+  "id": 24,
+  "name": "Prayer Plant & Pot",
+  "description": "Prayer Plant - Maranta Leuconeura. Sold with a stylish ceramic plant pot, this distinctive plant has stunning green leaves with red veins and pink undersides.",
+  "price": 23.99,
+  "image": "images/products/24.jpg",
+  "category": "Plants"
+},
+
+{
+  "id": 25,
+  "name": "Peace Lily",
+  "description": "Peace Lily - Spathiphyllum wallisi. This is recognised as one of the best plants for improving air quality, removing toxins such as formaldehyde, ammonia and carbon monoxide from the air.",
+  "price": 15.99,
+  "image": "images/products/25.jpg",
+  "category": "Plants"
+},
+
+{
+  "id": 26,
+  "name": "Fiddle-Leaf Fig",
+  "description": "Ficus Lyrata. Enjoy the beauty of the classic Fiddle Leaf Fig. The fiddle-shaped leaves of this houseplant are well-loved, and for good reason - they're gorgeous! Native to the rainforests of western and central Africa, this plant makes a great visual impact with its large green leaves.",
+  "price": 25.99,
+  "image": "images/products/26.jpg",
+  "category": "Plants"
+}
 ]
+
+

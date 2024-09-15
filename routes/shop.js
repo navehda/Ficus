@@ -41,4 +41,21 @@ router.get('/single/:id', (req, res) => {
     });
 });
 
+// route for filtering products by category
+jQuery(document).ready(function($) {
+    var $container = jQuery('#shop');
+
+    $container.isotope({
+        itemSelector: '.product',
+        layoutMode: 'fitRows'
+    });
+
+    jQuery('.shop-filter a').click(function() {
+        var filterValue = jQuery(this).attr('data-filter');
+        $container.isotope({ filter: filterValue });
+        return false;
+    });
+});
+
+
 module.exports = router;

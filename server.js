@@ -19,6 +19,7 @@ const {
     getProducts,     // For managing products
     saveProducts,    // To save new or modified products
     getActivities    // If needed for admin activities viewing
+    
 } = require('./persist');
 
 // Load SSL certificate and private key
@@ -54,6 +55,11 @@ app.use(cookieParser()); // To parse cookies
 const helmet = require('helmet');
 app.use(helmet()); // Automatically sets security headers
 
+// Middleware to attach username globally to `res.locals`
+app.use((req, res, next) => {
+    res.locals.username = req.cookies.username || null; // Attach `username` to res.locals
+    next();  // Move to the next middleware or route handler
+});
 
 // Rate limiting middleware
 const limiter = rateLimit({
@@ -191,12 +197,10 @@ app.post('/login',
         // Validate and sanitize inputs
         body('username')
             .trim()            // Remove extra spaces before/after the username
-            .escape()          // Escape special characters (for security)
-            .isLength({ min: 3 }).withMessage('Username must be at least 3 characters long'),
+            .escape(),          // Escape special characters (for security)
         body('password')
             .trim()            // Remove extra spaces
-            .escape()          // Escape special characters
-            .isLength({ min: 8 }).withMessage('Password must be at least 8 characters long'),
+            .escape(),          // Escape special characters
     ],
     async (req, res) => {
         const errors = validationResult(req);
@@ -237,49 +241,50 @@ app.post('/login',
 });
 
 // Route to handle adding items to the cart
+// Route to handle adding items to the cart
 app.post('/cart/add', checkAuth, async (req, res) => {
-    const { productId, quantity } = req.body;
+    const { productId, quantity } = req.body;  // Assuming `productId` and `quantity` are sent from the form
     const username = req.cookies.username;
 
-    console.log(`Adding product ${productId} with quantity ${quantity} to ${username}'s cart`);
-
     try {
-        // Load carts and products from persist.js
+        // Load carts and products from persistence
         const carts = await getCarts();
         const products = await getProducts();
 
-        // Initialize the user's cart if it doesn't exist
-        let userCart = carts[username] || [];
-
-        // Check if the product already exists in the cart
-        const productIndex = userCart.findIndex(item => item.productId == productId);
-
+        // Find the product by productId
         const product = products.find(p => p.id == productId);
         if (!product) {
-            console.log("Product not found for productId:", productId);
-            return res.status(500).send('Product not found');
+            return res.status(404).send('Product not found');
         }
 
-        if (productIndex > -1) {
-            // Update quantity if it exists
-            userCart[productIndex].quantity += parseInt(quantity, 10);
+        // Initialize user's cart if it doesn't exist
+        let userCart = carts[username] || [];
+
+        // Check if the product is already in the cart
+        const cartItemIndex = userCart.findIndex(item => item.productId == productId);
+
+        if (cartItemIndex > -1) {
+            // Update quantity if product already exists in cart
+            userCart[cartItemIndex].quantity += parseInt(quantity, 10);
         } else {
-            // Add new product to cart
+            // Add new product to cart with all details
             userCart.push({
-                productId: product.id.toString(),
+                productId: product.id,
                 quantity: parseInt(quantity, 10),
-                name: product.name,
-                price: product.price,
+                product: {  // Add full product details to the cart
+                    id: product.id,
+                    name: product.name,
+                    imageUrl: product.imageUrl,  // Ensure this field exists in `products.json`
+                    price: product.price
+                }
             });
         }
 
-        // Save the updated cart
+        // Save the updated cart back to persistence
         carts[username] = userCart;
         await saveCarts(carts);
 
-        // Log the add-to-cart activity
-        await logActivity(username, 'add-to-cart');
-
+        // Redirect back to the cart page
         res.redirect('/cart');
     } catch (err) {
         console.error('Error adding to cart:', err);
@@ -302,24 +307,89 @@ app.get('/cart', checkAuth, async (req, res) => {
 
         console.log("User cart contents:", userCart);
 
-        res.render('cart', { cart: userCart });
+        // Calculate the cart total
+        const cartTotal = userCart.reduce((total, item) => {
+            return total + item.product.price * item.quantity;
+        }, 0);
+
+        res.render('cart', { cart: userCart, cartTotal });
     } catch (err) {
         console.error('Error loading cart:', err);
         res.status(500).send('Error loading cart');
     }
 });
 
+app.post('/cart/update', checkAuth, async (req, res) => {
+    const { productId, quantity } = req.body;  // Extract the product ID and quantity from the request body
+    const username = req.cookies.username;  // Get the username from the cookies
+
+    try {
+        // Load the carts from persistence
+        const carts = await getCarts();
+
+        // Find the user's cart
+        let userCart = carts[username] || [];
+
+        // Find the item in the cart that matches the productId
+        const itemIndex = userCart.findIndex(item => item.productId == productId);
+
+        if (itemIndex > -1) {
+            // Update the item's quantity
+            userCart[itemIndex].quantity = parseInt(quantity, 10);
+
+            // Remove the item if the quantity is 0
+            if (userCart[itemIndex].quantity === 0) {
+                userCart.splice(itemIndex, 1);
+            }
+        }
+
+        // Save the updated cart back to persistence
+        carts[username] = userCart;
+        await saveCarts(carts);
+
+        // Redirect back to the cart page after updating
+        res.redirect('/cart');
+    } catch (err) {
+        console.error('Error updating cart:', err);
+        res.status(500).send('Error updating cart');
+    }
+});
+
+// Route to handle removing items from the cart
+app.post('/cart/remove', checkAuth, async (req, res) => {
+    const { productId } = req.body;  // Extract the product ID from the request body
+    const username = req.cookies.username;  // Get the username from the cookies
+    // Load the carts from persistence
+    const carts = await getCarts();
+    // Find the user's cart
+    let userCart = carts[username] || [];
+    // Find the item in the cart that matches the productId
+    const itemIndex = userCart.findIndex(item => item.productId == productId);
+    if (itemIndex > -1) {
+        // Remove the item from the cart
+        userCart.splice(itemIndex, 1);
+    }
+    // Save the updated cart back to persistence
+    carts[username] = userCart;
+    await saveCarts(carts);
+    // Redirect back to the cart page after removing the item
+    res.redirect('/cart');
+});
+
+
 // Import and use routes
 app.use('/contact', require('./routes/contact'));
 app.use('/faqs', require('./routes/faqs'));
 app.use('/login', require('./routes/login'));
+app.use('/wishlist', require('./routes/wishlist'));
 
 // Route for the home page
 app.get('/', (req, res) => {
     const data = {
         title: 'Ficus - Sustainable Goods',
         storeName: 'Ficus Store',
-        category: 'Sustainable and Green Products'
+        category: 'Sustainable and Green Products',
+        username: req.cookies.username
     };
     res.render('index', data); // Renders views/index.ejs with data
 });
@@ -516,6 +586,10 @@ app.get('/admin', async (req, res) => {
             activities = [];
         }
 
+        // Reverse the order of activities to show the newest first
+        activities.reverse();
+
+
         // Render the admin template with activities and products
         res.render('admin', { activities, products });
     } catch (err) {
@@ -620,8 +694,7 @@ app.get('/profile', checkAuth, async (req, res) => {
     }
 });
 
-// Route to handle profile update (POST)
-// Route for handling profile update
+// Route to handle profile update
 app.post('/profile', 
     [
         // Validate and sanitize username
@@ -649,33 +722,49 @@ app.post('/profile',
     ],
     async (req, res) => {
         const errors = validationResult(req);
+        const username = req.cookies.username;
+        const { newUsername, newPassword, reenterPassword, newAddress } = req.body;
+
         if (!errors.isEmpty()) {
-            return res.render('user-profile', { error: errors.array()[0].msg, user: req.cookies.username });
+            return res.render('user-profile', { error: errors.array()[0].msg, success: null, user: { username: newUsername, address: newAddress } });
         }
 
-        const { newUsername, newPassword, newAddress } = req.body;
-        const username = req.cookies.username; // Get current logged-in user
-
         try {
-            // Load existing users from persist.js
+            // Load users and check if the new username already exists
             const users = await getUsers();
             const existingUser = users.find(user => user.username === newUsername && user.username !== username);
 
             if (existingUser) {
-                return res.render('user-profile', { error: 'Username already exists', user: req.cookies.username });
+                return res.render('user-profile', { error: 'Username already exists', success: null, user: { username: newUsername, address: newAddress } });
             }
 
-            // Update user profile details
+            // Find the user based on the current username
             const user = users.find(user => user.username === username);
             if (user) {
+                let passwordChanged = false;
+
+                // Detect if password is changed by comparing old and new password
+                if (newPassword && newPassword !== user.password) {
+                    user.password = newPassword;  // In real-world apps, this should be hashed
+                    passwordChanged = true;
+                }
+
+                // Update username and address
                 user.username = newUsername;
-                user.password = newPassword;  // Always hash the password before saving in a real-world app
                 user.address = newAddress;
 
-                await saveUsers(users); // Save updated users back to persistence
-                res.render('user-profile', { success: 'Profile updated successfully', user });
+                // Save users back to persistence
+                await saveUsers(users);
+
+                // Log the password change if it was updated
+                if (passwordChanged) {
+                    console.log('Logging password change activity for:', username);
+                    await logActivity(username, 'changed-password');
+                }
+
+                res.render('user-profile', { success: 'Profile updated successfully', error: null, user });
             } else {
-                res.render('user-profile', { error: 'User not found', user: req.cookies.username });
+                res.render('user-profile', { error: 'User not found', success: null, user: { username: newUsername, address: newAddress } });
             }
         } catch (err) {
             console.error('Error updating profile:', err);
@@ -684,8 +773,88 @@ app.post('/profile',
     }
 );
 
+// Route to display the wishlist page
+app.get('/wishlist', checkAuth, async (req, res) => {
+    const username = req.cookies.username;
 
-// app.listen(port, () => {
-//     console.log(`Ficus server running on http://localhost:${port}`);
-// });
+    try {
+        // Load wishlist from persistence (file or database)
+        const wishlists = await getWishlists();
+        const userWishlist = wishlists[username] || [];
+
+        // Render the wishlist page with the user's wishlist
+        res.render('wishlist', { wishlist: userWishlist });
+    } catch (err) {
+        console.error('Error loading wishlist:', err);
+        res.status(500).send('Error loading wishlist');
+    }
+});
+
+// Route to add a product to the wishlist
+app.post('/wishlist/add', checkAuth, async (req, res) => {
+    const { productId } = req.body; // Extract productId from form data
+    const username = req.cookies.username; // Get logged-in username from cookies
+
+    try {
+        // Load existing wishlists and products
+        const wishlists = await getWishlists();
+        const products = await getProducts();
+
+        // Check if product exists in the database
+        const product = products.find(p => p.id == productId);
+        if (!product) {
+            return res.status(404).send('Product not found');
+        }
+
+        // Initialize user's wishlist if it doesn't exist
+        let userWishlist = wishlists[username] || [];
+
+        // Add product to wishlist if it's not already there
+        if (!userWishlist.some(item => item.id === productId)) {
+            userWishlist.push(product);
+            wishlists[username] = userWishlist;
+            await saveWishlists(wishlists); // Save updated wishlist
+            console.log('Wishlist saved successfully:', wishlists); // Log success
+        }
+
+        res.redirect('back');
+    } catch (err) {
+        console.error('Error adding to wishlist:', err);
+        res.status(500).send('Error adding to wishlist');
+    }
+});
+
+// Route to remove a product from the wishlist
+app.post('/wishlist/remove', checkAuth, async (req, res) => {
+    const { productId } = req.body;
+    const username = req.cookies.username;
+
+    try {
+        // Load existing wishlists
+        const wishlists = await getWishlists();
+
+        // Initialize wishlist for the user if not present
+        if (!wishlists[username]) {
+            return res.redirect('/wishlist'); // If the user doesn't have a wishlist, redirect
+        }
+
+        // Remove the product from the user's wishlist
+        wishlists[username] = wishlists[username].filter(item => item.id !== productId);
+
+        // Save the updated wishlist
+        await saveWishlists(wishlists);
+
+        // Redirect back to the wishlist page
+        res.redirect('/wishlist');
+    } catch (err) {
+        console.error('Error removing from wishlist:', err);
+        res.status(500).send('Error removing from wishlist');
+    }
+});
+
+// Route to llm generated code
+app.get('/llm', (req, res) => {
+    res.render('llm');
+});
+
 

@@ -44,10 +44,9 @@
                     <!-- Primary Menu -->
                     <nav class="primary-menu top-primary-menu col-lg-5 order-last order-lg-first mobile-menu-off-canvas">
                         <ul class="menu-container">
-                            <li class="menu-item current"><a class="menu-link" href="index"><div>Home</div></a></li>
+                            <li class="menu-item current"><a class="menu-link" href="/"><div>Home</div></a></li>
                             <li class="menu-item"><a class="menu-link" href="shop"><div>Products</div></a></li>
-                            <li class="menu-item"><a class="menu-link" href="faqs"><div>FAQs</div></a></li>
-                            <li class="menu-item"><a class="menu-link" href="cart"><div>Cart</div></a></li>
+							<li class="menu-item"><a class="menu-link" href="contact"><div>Contact Us</div></a></li>
                             <li class="menu-item d-block d-lg-none"><a class="menu-link" href="logout"><div>Logout</div></a></li>
                         </ul>
                     </nav><!-- #primary-menu end -->
@@ -101,14 +100,37 @@
                         
                         <!-- Order Summary -->
                         <div class="col-xl-4">
-                            <h4>Order Summary</h4>
-                            <ul style="list-style-type: none; padding-left: 0;">
-                                <% cart.forEach(item => { %>
-                                    <li><%= item.name %> x <%= item.quantity %> = $<%= (item.price * item.quantity).toFixed(2) %></li>
-                                <% }); %>
-                            </ul>
-                            <h5>Total: $<%= cartTotal.toFixed(2) %></h5>
-                        </div>
+                            <h3>Order Summary</h3>
+                            <table class="table cart">
+                                <thead>
+                                    <tr>
+                                        <th class="cart-product-name">Product</th>
+                                        <th class="cart-product-price">Price</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% for (let item of cart) { %>
+                                        <tr class="cart-item">
+                                            <td class="cart-product-name">
+                                                <strong><%= item.name %></strong> <span class="product-quantity">x <%= item.quantity %></span>
+                                            </td>
+                                            <td class="cart-product-price">
+                                                <span class="amount">$<%= item.product.price.toFixed(2) * item.quantity %></span>
+                                            </td>
+                                        </tr>
+                                    <% } %>
+                                </tbody>
+                                <tfoot>
+                                    <tr class="cart-subtotal" >
+                                        <td><strong>Subtotal</strong></td>
+                                        <td><span class="amount">$<%= cart.reduce((acc, item) => acc + item.product.price.toFixed(2) * item.quantity, 0) %></span></td>
+                                    </tr>
+                                    <tr class="cart-total">
+                                        <td><strong>Total</strong></td>
+                                        <td><span class="amount">$<%= cart.reduce((acc, item) => acc + item.product.price.toFixed(2) * item.quantity, 0) %></span></td>
+                                    </tr>
+                                </tfoot>
+                            </table>
                     </div>
                 </div>
             </div>
@@ -138,7 +160,7 @@
                             <div class="widget widget_links">
                                 <h3 class="text-transform-none ls-0 border-bottom d-inline-block mb-5">Contact Us</h3>
                                 <ul>
-                                    <li class="mb-2"><a class="ls-1 text-light" href="mailto:noreply@canvas.com">noreply@canvas.com</a></li>
+                                    <li class="mb-2"><a class="ls-1 text-light" href="mailto:noreply@ficus.ecostore.com">noreply@ficus.ecostore.com</a></li>
                                     <li class="mb-2"><a class="ls-1 text-light" href="tel:+0011122233">0-111-222-33</a></li>
                                     <li><a class="ls-1 text-light" href="login">Sign In/Register</a></li>
                                 </ul>

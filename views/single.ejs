@@ -14,10 +14,11 @@
 	<link rel="stylesheet" href="/css/style.css">
 
 	<!-- Font Icons -->
-	<link rel="stylesheet" href="css/font-icons.css">
+	<link rel="stylesheet" href="/css/font-icons.css">
 
 	<!-- Plugins/Components CSS -->
-	<link rel="stylesheet" href="css/swiper.css">
+	<link rel="stylesheet" href="/css/swiper.css">
+	<link rel="stylesheet" href="css/components/ion.rangeslider.css">
 
 	<!-- Niche Demos -->
 	<link rel="stylesheet" href="/css/skincare.css">
@@ -32,7 +33,7 @@
 </head>
 
 
-	<style>
+	<!-- <style>
 		/* Specific for This Page for Smooth Scrolling Product Image */
 		@media (prefers-reduced-motion: no-preference) {
 			:root {
@@ -43,11 +44,11 @@
 		.device-touch .section-single-features {
 			background-attachment: scroll !important;
 		}
-	</style>
+	</style> -->
 
 </head>
 
-<body class="stretched skincare-shop-single">
+<body class="stretched">
     <!-- Document Wrapper -->
     <div id="wrapper">
         <!-- Top Bar -->
@@ -57,7 +58,7 @@
 		============================================= -->
 		<div id="top-bar" class="py-3 border-0" style="background: var(--cnvs-color2);">
 			<div class="container text-center color">
-				<div style="font-size: .9375rem;">Get 20% off* your First Order &amp; Free Shipping for purchases above $99</div>
+				<div style="font-size: .9375rem;">Get 20% off* your First Order &amp; Free Shipping Up to $99</div>
 			</div>
 		</div>
 
@@ -70,11 +71,10 @@
 					<nav class="primary-menu top-primary-menu col-lg-5 order-last order-lg-first mobile-menu-off-canvas">
 
 						<ul class="menu-container">
-							<li class="menu-item"><a class="menu-link" href="index"><div>Home</div></a></li>
+							<li class="menu-item current"><a class="menu-link" href="/"><div>Home</div></a></li>
 							<li class="menu-item"><a class="menu-link" href="shop"><div>Products</div></a></li>
-							<li class="menu-item"><a class="menu-link" href="faqs"><div>FAQs</div></a></li>
-							<li class="menu-item"><a class="menu-link" href="cart"><div>Cart</div></a></li>
-							<li class="menu-item d-block d-lg-none"><a class="menu-link" href="cart"><div>Contact</div></a></li>
+							<li class="menu-item"><a class="menu-link" href="contact"><div>Contact Us</div></a></li>
+							<li class="menu-item d-block d-lg-none"><a class="menu-link" href="contact"><div>Contact</div></a></li>
 						</ul>
 
 					</nav><!-- #primary-menu end -->
@@ -90,7 +90,7 @@
 
 							<nav class="primary-menu top-primary-menu me-2 d-none d-lg-block">
 								<ul class="menu-container">
-									<li class="menu-item"><a class="menu-link" href="cart"><div>Contact</div></a></li>
+									<li class="menu-item"><a class="menu-link" href="logout"><div>Logout</div></a></li>
 								</ul>
 							</nav><!-- #primary-menu end -->
 
@@ -100,11 +100,32 @@
 							</button>
 							</div>
 
+
 							 <!-- Top Account
 							============================================= -->
-							<div class="header-misc-icon me-lg-4">
-								<a href="login"><i class="bi-person-circle"></i></a>
-							</div><!-- top-Account end -->
+							<div class="header-misc-icon me-lg-4 profile-icon">									<% if (username) { %>
+								<!-- If user is logged in, show profile link -->
+								<div class="profile-wrapper">
+									<a href="/profile" class="profile-link">
+										<i class="bi-person-circle"></i>
+									</a>
+									<!-- Hover menu with username, profile link, and logout -->
+									<div class="profile-hover-menu">
+										<span class="profile-greeting">Hi <strong><%= username %></strong></span>
+										<ul>
+											<li><a href="/profile">Profile</a></li>
+											<li><a href="/wishlist">Wishlist</a></li>
+											<li><a href="/logout">Logout</a></li>
+										</ul>
+									</div>
+								</div>
+							<% } else { %>
+								<!-- If user is not logged in, redirect to login -->
+								<a href="/login" class="profile-link">
+									<i class="bi-person-circle"></i>
+								</a>
+							<% } %>
+						</div>
 
 							<!-- Top Cart
 							============================================= -->
@@ -117,7 +138,7 @@
 									<div class="top-cart-items">
 										<div class="top-cart-item">
 											<div class="top-cart-item-image position-relative">
-												<a href="single"><img src="images/products/13.jpg" alt="Blue Shoulder Bag"></a>
+												<a href="single"><img src="/images/products/13.jpg" alt="Blue Shoulder Bag"></a>
 												<span class="position-absolute top-0 start-0 translate-middle bg-danger rounded-circle lh-1 border border-white text-white square square-xs text-center">
 													<span class="visually-hidden">Remove Product</span>&times;
 												</span>
@@ -179,129 +200,25 @@
 							</button>
 						</div>
 
-						<!-- Primary Navigation
-						============================================= -->
-						<nav class="primary-menu main-primary-menu w-100 with-arrows">
-
-							<ul class="menu-container justify-content-between">
-								<li class="menu-item"><a class="menu-link" href="shop"><div>New Collections</div></a></li>
-								<li class="menu-item mega-menu mega-menu-small"><a class="menu-link" href="shop"><div>Shop for Skin</div></a>
-									<div class="mega-menu-content">
-										<div class="row g-0 align-items-stretch">
-											<a href="shop" class="col-lg-4 d-none d-lg-flex imagescale" style="background: linear-gradient(to bottom,rgba(255,255,255,0.001) 25%,var(--bs-danger) 100%), url('images/megamenu.jpg') center center / cover;">
-												<div class="bg-overlay">
-													<div class="bg-overlay-content justify-content-center align-items-end">
-														<div class="text-white op-1 border-bottom d-inline-block all-ts mb-2" data-hover-animate="op-1 scale-lg"  data-hover-animate-out="op-1" data-hover-parent=".bg-overlay">View Products</div>
-													</div>
-												</div>
-											</a>
-											<div class="sub-menu-container mega-menu-column col">
-												<div class="row d-md-flex p-md-4">
-													<div class="col-md-6">
-														<div class="menu-item mb-md-2">
-															<a href="#" class="menu-link">
-																<h4 class="mb-1">Online Orders</h4>
-																<p class="mb-0 fw-normal text-smaller text-black-50">Authoritatively negotiate multimedia based niches.</p>
-															</a>
-														</div>
-														<div class="menu-item mb-md-2">
-															<a href="#" class="menu-link">
-																<h4 class="mb-1">Premium Quality</h4>
-																<p class="mb-0 fw-normal text-smaller text-black-50">Rapidiously pontificate quality functionalities.</p>
-															</a>
-														</div>
-														<div class="menu-item">
-															<a href="#" class="menu-link">
-																<h4 class="mb-1">100% Organic</h4>
-																<p class="mb-0 fw-normal text-smaller text-black-50">Schemas without inexpensive through outsourcing.</p>
-															</a>
-														</div>
-													</div>
-													<div class="col-md-6">
-														<div class="menu-item mb-md-2">
-															<a href="#" class="menu-link">
-																<h4 class="mb-1">Reusable Products</h4>
-																<p class="mb-0 fw-normal text-smaller text-black-50">Compellingly promote holistic growth strategies.</p>
-															</a>
-														</div>
-														<div class="menu-item mb-md-2">
-															<a href="#" class="menu-link">
-																<h4 class="mb-1">100% Genuine</h4>
-																<p class="mb-0 fw-normal text-smaller text-black-50">Seamlessly reconceptualize extensive growth.</p>
-															</a>
-														</div>
-														<div class="menu-item">
-															<a href="#" class="menu-link">
-																<h4 class="mb-1">Unisex Products</h4>
-																<p class="mb-0 fw-normal text-smaller text-black-50">Open-source web-readiness. Enthusiastically under.</p>
-															</a>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</li>
-								<li class="menu-item"><a class="menu-link" href="shop"><div>Shop for Hair</div></a>
-									<ul class="sub-menu-container">
-										<li class="menu-item"><a class="menu-link" href="shop"><div>Most Popular</div></a></li>
-										<li class="menu-item"><a class="menu-link" href="shop"><div>Latest Items</div></a></li>
-										<li class="menu-item"><a class="menu-link" href="shop"><div>New Arrivals</div></a></li>
-										<li class="menu-item"><a class="menu-link" href="shop"><div>View All</div></a></li>
-									</ul>
-								</li>
-								<li class="menu-item"><a class="menu-link" href="shop"><div>Up to 40% Sale</div></a></li>
-								<li class="menu-item"><a class="menu-link" href="shop"><div>Accessories Items</div></a></li>
-								<li class="menu-item"><a class="menu-link" href="shop"><div>Our Farmhouse</div></a></li>
-								<li class="menu-item"><a class="menu-link" href="cart"><div>Contact</div></a></li>
-							</ul>
-
-						</nav><!-- #primary-menu end -->
 					</div>
 				</div>
 			</div>
 			<div class="header-wrap-clone"></div>
 		</header><!-- #header end -->
 
-		 <!-- Hero
-		============================================= -->
         <div class="container">
-            <div class="row g-0 col-mb-50 swiper-vertical">
-                <div class="col-md-6">
-                    <div class="row">
-                        <div class="col scroll-container mt-5">
-                            <div class="masonry-thumbs grid-container row row-cols-3 row-cols-md-1 masonry-gap-xl" data-lightbox="gallery">
-								<a href="<%= product.image %>" id="item-1" class="page-section p-0" data-lightbox="gallery-item" title="<%= product.name %>">
-									<img src="<%= product.image %>" alt="<%= product.name %>">
-								</a>
-							</div>
-                        </div>
-                    </div>
-                </div>
-
+			<div class="row g-0 col-mb-50 swiper-vertical">
+				<div class="col-md-6">
+					<div class="row">
+						<nav id="sticky-dots" class="d-none d-md-flex flex-column align-items-center col-auto one-page-menu" data-active-class="active" data-parent=".nav-link">
+							<a class="nav-link sticky-dot active" href="#item-1" data-href="#item-1"><i class="bi-circle"></i></a>
+						</nav>
 
 						<div class="col scroll-container mt-5">
 							<div class="masonry-thumbs grid-container row row-cols-3 row-cols-md-1 masonry-gap-xl" data-lightbox="gallery">
-								<a href="images/single/gallery/1.jpg" id="item-1" class="page-section p-0" data-lightbox="gallery-item" title="#1 Image Caption">
-									<img src="images/single/gallery/1.jpg" alt="#1 Image Caption">
+								<a href="<%= product.image %>"" id="<%= product.id %>"" class="page-section p-0" data-lightbox="gallery-item" title="">
+									<img src="/images/products/<%= product.image %>" alt="<%= product.name %>">
 								</a>
-								<a href="images/single/gallery/2.jpg" id="item-2" class="page-section p-0" data-lightbox="gallery-item" title="#2 Image Caption">
-									<img src="images/single/gallery/2.jpg" alt="#2 Image Caption">
-								</a>
-								<a href="images/single/gallery/5.jpg" id="item-3" class="page-section p-0" data-lightbox="gallery-item" title="#3 Image Caption">
-									<img src="images/single/gallery/5.jpg" alt="#3 Image Caption">
-								</a>
-								<a href="images/single/gallery/4.jpg" id="item-4" class="page-section p-0" data-lightbox="gallery-item" title="#4 Image Caption">
-									<img src="images/single/gallery/4.jpg" alt="#4 Image Caption">
-								</a>
-								<a href="images/single/gallery/3.jpg" id="item-5" class="page-section p-0" data-lightbox="gallery-item" title="#5 Image Caption">
-									<img src="images/single/gallery/3.jpg" alt="#5 Image Caption">
-								</a>
-								<a href="images/slider/1.mp4" data-lightbox="iframe" id="item-6" class="page-section p-0">
-									<div class="video-wrap no-placeholder position-relative">
-										<video poster="images/slider/1.jpg" preload="auto" loop autoplay muted playsinline>
-											<source src='images/slider/1.mp4' type='video/mp4'>
-										</video>
 									</div>
 								</a>
 							</div>
@@ -313,25 +230,17 @@
 
 						<div class="d-flex align-items-center justify-content-between">
 
-							<p class="color text-uppercase ls-2 mb-3 small">Serum <span class="mx-2">/</span> <span class="op-07 ls-1">1.7fl oz - 50ml</span></p>
+							<p class="color text-uppercase ls-2 mb-3 small"><%= product.category %> <span class="mx-2"></span></p>
 
-							<!-- Product Single - Rating
-							============================================= -->
-
-							<div class="product-rating">
-								<!-- Dynamic rating rendering -->
-								<% for (let i = 0; i < Math.floor(product.rating); i++) { %>
-									<i class="bi-star-fill color"></i>
-								<% } %>
-								<% if (product.rating % 1 !== 0) { %>
-									<i class="bi-star-half color"></i>
-								<% } %>
-							</div>
 						</div>
 
-						<h2 class="fs-1 lh-sm">Stochkholm Skincare & Moisture</h2>
+						<h2 class="fs-1 lh-sm"><%= product.name %></h2>
 
 						<div class="line my-4" style="border-color: var(--cnvs-color);"></div>
+
+                        <!-- Product Description -->
+                        <p><%= product.description %></p>
+						<div class="row mb-2">
 
 						<!-- Quantity & Cart Button
 						============================================= -->
@@ -340,34 +249,19 @@
 							<input type="hidden" name="productId" value="<%= product.id %>">
 		
 							<div class="quantity mb-2 mb-lg-0 me-2 me-lg-4 justify-content-between">
-								<button type="button" class="minus"><i class="uil uil-minus"></i></button>
+								<!-- <button type="button" class="minus"><i class="uil uil-minus"></i></button> -->
 								<input type="number" step="1" min="1" name="quantity" value="1" title="Qty" class="qty border-0">
-								<button type="button" class="plus"><i class="uil uil-plus"></i></button>
+								<!-- <button type="button" class="plus"><i class="uil uil-plus"></i></button> -->
 							</div>
 		
 							<button type="submit" class="add-to-cart button m-0 flex-fill text-white" style="--cnvs-btn-padding-y: 0.75rem">$<%= product.price %><i class="bi-circle-fill small mx-3"></i>Add to Cart</button>
 						</form>
 		
-						<div class="lh-sm small mt-3 op-06">Free US shipping. International flat-rate. &middot; Skip or cancel any time.</div>
+						<div class="lh-sm small mt-3 op-06">Free US shipping. International flat-rate.</div>
 		
 						<div class="line my-4" style="border-color: var(--cnvs-color);"></div>
 		
 
-						<!-- Product Single - Short Description
-						============================================= -->
-                        <!-- Product Description -->
-                        <p><%= product.description %></p>
-						<div class="row mb-2">
-							<span class="col-sm-3 fw-semibold">Features:</span>
-							<span class="col-sm-9"><%= product.features %></span>
-						</div>
-		
-                        <div class="row mb-4">
-                            <span class="col-sm-3 fw-semibold">How to Apply:</span>
-                            <span class="col-sm-9"><%= product.howToApply %></span>
-                        </div>
-                        <p class="mb-0">Perspiciatis ad eveniet ea quasi debitis quos laborum eum reprehenderit eaque explicabo assumenda rem modi.</p>
-					</div>
 				</nav>
 			</div>
 		</div>
@@ -385,26 +279,26 @@
 
 							<div class="col-lg-4 col-md-6">
 								<h3 class="fs-2 d-inline-block mb-4 fw-bold" style="border-bottom: 1px solid rgba(255,255,255,0.3);">Our Beliefs</h3>
-								<p class="mt-2 fs-5 mb-5">Assertively morph ethical e-markets with out-of-the-box results. Professionally e-enable cutting-edge services and quality partnerships.</p>
+								<p class="mt-2 fs-5 mb-5"> We believe in the power of nature and the importance of sustainability. Our products are made with the highest quality ingredients and are designed to be eco-friendly.</p>
 								<a href="#" class="button button-small button-light button-border m-0 h-bg-light" style="border-color: rgba(255,255,255,0.15);">Learn More</a>
 							</div>
 
-							<div class="col-lg-4 col-md-6">
+							<!-- <div class="col-lg-4 col-md-6">
 								<h3 class="fs-2 d-inline-block mb-4 fw-bold" style="border-bottom: 1px solid rgba(255,255,255,0.3);">Our Sponsors</h3>
 								<div class="row align-items-center text-center">
 									<div class="col op-08"><img src="images/sponsors/amazon.svg" alt="..." width="80"></div>
 									<div class="col op-08"><img src="images/sponsors/cnn.svg" alt="..." width="80"></div>
 									<div class="col op-08"><img src="images/sponsors/google.svg" alt="..." width="80"></div>
-								</div>
-								<div class="row align-items-center text-center mt-2">
+								</div> -->
+								<!-- <div class="row align-items-center text-center mt-2">
 									<div class="col op-08"><img src="images/sponsors/netflix.svg" alt="..." width="80"></div>
 									<div class="col op-08"><img src="images/sponsors/jetblue.svg" alt="..." width="80"></div>
 									<div class="col op-08"><img src="images/sponsors/github.svg" alt="..." width="80"></div>
 								</div>
-							</div>
+							</div> -->
 
-							<div class="col-lg-4 d-none d-lg-block">
-								<img src="images/single/bottle.png" alt=".." class="section-bottle-img">
+							<!-- <div class="col-lg-4 d-none d-lg-block">
+								<img src="images/single/bottle.png" alt=".." class="section-bottle-img"> -->
 							</div>
 						</div>
 					</div>
@@ -583,7 +477,7 @@
 							<div class="oc-item">
 								<div class="product">
 									<div class="product-image mb-2">
-										<a href="single"><img src="images/products/15.jpg" alt="..."></a>
+										<a href="single"><img src="<%= product.image %>" alt="..."></a>
 										<div class="bg-overlay">
 											<div class="bg-overlay-content align-items-end justify-content-end" data-hover-animate="fadeIn">
 												<a href="single" class="d-block positon-absolute top-0 start-0 w-100 h-100 z-1"><span class="visually-hidden">Product Link</span></a>
@@ -660,7 +554,7 @@
 								<h3 class="text-transform-none ls-0 border-bottom d-inline-block mb-5">Contact Us</h3>
 
 								<ul>
-									<li class="mb-2"><a class="ls-1 text-light" href="mailto:noreply@canvas.com">noreply@canvas.com</a></li>
+									<li class="mb-2"><a class="ls-1 text-light" href="mailto:noreply@ficus.ecostore.com">noreply@ficus.ecostore.com</a></li>
 									<li class="mb-2"><a class="ls-1 text-light" href="tel:+0011122233">0-111-222-33</a></li>
 									<li><a class="ls-1 text-light" href="login">Sign In/Register</a></li>
 								</ul>
@@ -696,7 +590,7 @@
 					<div class="row col-mb-30">
 
 						<div class="col-md-6 text-center text-md-start">
-							Copyrights &copy; 2023 All Rights Reserved by Canvas Inc.
+							Copyrights &copy; 2023 All Rights Reserved by Ficus. Inc.
 						</div>
 
 						<div class="col-md-6 text-center text-md-end">

@@ -1,1 +1,22 @@
-[]
+{
+  "admin": [
+    {
+      "productId": 16,
+      "quantity": 5,
+      "product": {
+        "id": 16,
+        "name": "Eldovado Viscose Shirt",
+        "price": 126
+      }
+    },
+    {
+      "productId": 4,
+      "quantity": 5,
+      "product": {
+        "id": 4,
+        "name": "Stochkholm Skincare & Moisture Hair Oil",
+        "price": 7.5
+      }
+    }
+  ]
+}

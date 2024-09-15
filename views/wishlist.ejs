@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta http-equiv="x-ua-compatible" content="IE=edge">
+	<meta name="author" content="SemiColonWeb">
+	<meta name="description" content="Create Skincare Store &amp; Beauty Products Websites with Canvas Template. Get Canvas to build powerful websites easily with the Highly Customizable &amp; Best Selling Bootstrap Template, today.">
+
+	<!-- Font Imports -->
+	<link rel="stylesheet" href="https://use.typekit.net/aay8rzy.css">
+
+	<!-- Core Style -->
+	<link rel="stylesheet" href="/css/style.css">
+
+	<!-- Font Icons -->
+	<link rel="stylesheet" href="/css/font-icons.css">
+
+	<!-- Plugins/Components CSS -->
+	<link rel="stylesheet" href="/css/rs6.css">
+	<link rel="stylesheet" href="/scroll/scroll.css">
+
+	<!-- Niche Demos -->
+	<link rel="stylesheet" href="/css/skincare.css">
+
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="/css/custom.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Document Title
+	============================================= -->
+	<title>Ficus - sustainable goods.</title>
+
+</head>
+
+<body class="stretched">
+
+	<!-- Document Wrapper
+	============================================= -->
+	<div id="wrapper">
+
+		<!-- Top Bar
+		============================================= -->
+		<div id="top-bar" class="py-3 border-0" style="background: var(--cnvs-color2);">
+			<div class="container text-center color">
+				<div style="font-size: .9375rem;">Get 20% off* your First Order &amp; Free Shipping for purchases above $99</div>
+			</div>
+		</div>
+
+		<!-- Header
+		============================================= -->
+		<header id="header" class="header-size-sm" data-sticky-shrink="false" style="border-color: var(--cnvs-color);">
+			<div class="container">
+				<div class="header-row justify-content-lg-between">
+
+					<nav class="primary-menu top-primary-menu col-lg-5 order-last order-lg-first mobile-menu-off-canvas">
+
+						<ul class="menu-container">
+							<li class="menu-item current"><a class="menu-link" href="/"><div>Home</div></a></li>
+							<li class="menu-item"><a class="menu-link" href="shop"><div>Products</div></a></li>
+							<li class="menu-item"><a class="menu-link" href="contact"><div>Contact Us</div></a></li>
+							<li class="menu-item d-block d-lg-none"><a class="menu-link" href="logout"><div>Logout</div></a></li>
+						</ul>
+
+					</nav><!-- #primary-menu end -->
+
+					 <!-- Logo
+					============================================= -->
+					<div id="logo" class="mx-lg-auto col-lg-2 justify-content-center">
+						<a class="color fst-italic" href="#">Ficus.</a>
+					</div><!-- #logo end -->
+
+					<div class="col-lg-5 d-flex justify-content-end">
+						<div class="header-misc">
+
+							<nav class="primary-menu top-primary-menu me-2 d-none d-lg-block">
+								<ul class="menu-container">
+									<li class="menu-item"><a class="menu-link" href="logout"><div>Logout</div></a></li>
+								</ul>
+							</nav><!-- #primary-menu end -->
+
+							<div class="primary-menu-trigger" data-target=".top-primary-menu">
+								<button class="cnvs-hamburger" type="button" title="Open Mobile Menu">
+								<span class="cnvs-hamburger-box"><span class="cnvs-hamburger-inner"></span></span>
+							</button>
+							</div>
+
+							 <!-- Top Account
+							============================================= -->
+							<div class="header-misc-icon me-lg-4 profile-icon">									<% if (username) { %>
+										<!-- If user is logged in, show profile link -->
+										<div class="profile-wrapper">
+											<a href="/profile" class="profile-link">
+												<i class="bi-person-circle"></i>
+											</a>
+											<!-- Hover menu with username, profile link, and logout -->
+											<div class="profile-hover-menu">
+												<span class="profile-greeting">
+												  Hi <strong><%= username %></strong>
+												</span>																							<ul>
+													<li><a href="/profile">Profile</a></li>
+													<li><a href="/wishlist">Wishlist</a></li>
+													<li><a href="/logout">Logout</a></li>
+												</ul>
+											</div>
+										</div>
+									<% } else { %>
+										<!-- If user is not logged in, redirect to login -->
+										<a href="/login" class="profile-link">
+											<i class="bi-person-circle"></i>
+										</a>
+									<% } %>
+								</div>
+															
+							<!-- Top Cart
+							============================================= -->
+							<div id="top-cart" class="header-misc-icon me-lg-4">
+								<a href="#" id="top-cart-trigger"><i class="bi-basket"></i></a>
+								<div class="top-cart-content">
+									<div class="top-cart-title">
+										<h4 class="ls-0 text-transform-none">Shopping Cart</h4>
+									</div>
+									<div class="top-cart-items">
+										<div class="top-cart-item">
+											<div class="top-cart-item-image position-relative">
+												<a href="single"><img src="images/products/13.jpg" alt="Blue Shoulder Bag"></a>
+												<span class="position-absolute top-0 start-0 translate-middle bg-danger rounded-circle lh-1 border border-white text-white square square-xs text-center">
+													<span class="visually-hidden">Remove Product</span>&times;
+												</span>
+											</div>
+											<div class="top-cart-item-desc">
+												<div class="top-cart-item-desc-title">
+													<a href="single" class="fw-normal">Âimtze Cream &amp; Lotions</a>
+													<span class="top-cart-item-price d-block">$29.99</span>
+												</div>
+												<div class="top-cart-item-quantity">x 1</div>
+											</div>
+										</div>
+										<div class="top-cart-item border-default">
+											<div class="top-cart-item-image position-relative">
+												<a href="single"><img src="images/products/11.jpg" alt="Blue Shoulder Bag"></a>
+												<span class="position-absolute top-0 start-0 translate-middle bg-danger rounded-circle lh-1 border border-white text-white square square-xs text-center">
+													<span class="visually-hidden">Remove Product</span>&times;
+												</span>
+											</div>
+											<div class="top-cart-item-desc">
+												<div class="top-cart-item-desc-title">
+													<a href="single" class="fw-normal">Clove Super Serum</a>
+													<span class="top-cart-item-price d-block">$12.49</span>
+												</div>
+												<div class="top-cart-item-quantity">x 2</div>
+											</div>
+										</div>
+									</div>
+									<div class="top-cart-action border-default">
+										<a href="cart" class="button button-small m-0">View Cart</a>
+										<span class="top-checkout-price">$54.97</span>
+									</div>
+								</div>
+							</div><!-- #top-cart end -->
+
+							<!-- Top Search
+							============================================= -->
+							<div id="top-search" class="header-misc-icon">
+								<a href="#" id="top-search-trigger"><i class="uil uil-search"></i><i class="bi-x-lg"></i></a>
+							</div><!-- #top-search end -->
+
+						</div>
+					</div>
+
+					<form class="top-search-form" action="search" method="get">
+						<input type="text" name="q" class="form-control" value="" placeholder="Type &amp; Hit Enter.." autocomplete="off">
+					</form>
+
+				</div>
+			</div>
+
+			<div id="header-wrap">
+				<div class="container">
+					<div class="header-row">
+
+						<div class="primary-menu-trigger justify-content-start" data-target=".main-primary-menu">
+							<button class="cnvs-hamburger" type="button" title="Open Mobile Menu">
+								<span class="cnvs-hamburger-box"><span class="cnvs-hamburger-inner"></span></span>
+							</button>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<div class="header-wrap-clone"></div>
+		</header><!-- #header end -->
+		
+		<!-- Page Title
+		============================================= -->
+		<section class="page-title page-title-parallax parallax scroll-detect py-lg-6">
+			<img src="images/shop-page/page-title.jpg" class="parallax-bg">
+			<div class="container">
+				<div class="page-title-row py-5">
+
+					<div class="page-title-content mw-xs">
+						<h1>Wishlist</h1>
+					</div>
+
+				</div>
+			</div>
+		</section><!-- .page-title end -->
+
+<body>
+    <h5>Here are our products that you liked the most!</h5>
+
+    <% if (wishlist.length === 0) { %>
+        <p>Your wishlist is empty.</p>
+    <% } else { %>
+        <ul>
+            <% wishlist.forEach(item => { %>
+                <li>
+                    <%= item.name %> - $<%= item.price %>
+                    <!-- Add functionality to remove from wishlist -->
+                    <form action="/wishlist/remove" method="POST" style="display:inline;">
+                        <input type="hidden" name="productId" value="<%= item.productId %>">
+                        <button type="submit">Remove</button>
+                    </form>
+                </li>
+            <% }) %>
+        </ul>
+    <% } %>
+
+    <a href="/shop">Back to Shop</a>
+</body>
+</html>

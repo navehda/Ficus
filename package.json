@@ -1,14 +1,15 @@
 {
   "name": "ficus",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "Ficus - Sustainable Products Store",
+  "main": "server.js",
   "scripts": {
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["sustainability", "ecommerce", "nodejs"],
+  "author": "Naveh Dayan",
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "body-parser": "^1.20.2",
     "cookie-parser": "^1.4.6",
@@ -17,6 +18,8 @@
     "express-rate-limit": "^7.4.0",
     "express-validator": "^7.2.0",
     "helmet": "^7.1.0",
-    "node-fetch": "^3.3.2"
+    "node-fetch": "^3.3.2",
+    "nodemailer": "^6.9.15"
   }
 }
+

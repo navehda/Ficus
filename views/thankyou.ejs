@@ -54,8 +54,7 @@
                         <ul class="menu-container">
                             <li class="menu-item current"><a class="menu-link" href="/"><div>Home</div></a></li>
                             <li class="menu-item"><a class="menu-link" href="/shop"><div>Products</div></a></li>
-                            <li class="menu-item"><a class="menu-link" href="/faqs"><div>FAQs</div></a></li>
-                            <li class="menu-item"><a class="menu-link" href="/cart"><div>Cart</div></a></li>
+							<li class="menu-item"><a class="menu-link" href="contact"><div>Contact Us</div></a></li>
                             <li class="menu-item d-block d-lg-none"><a class="menu-link" href="/contact"><div>Contact</div></a></li>
                         </ul>
                     </nav>
@@ -69,9 +68,29 @@
                         <div class="header-misc">
 
                             <!-- User Account -->
-                            <div class="header-misc-icon me-lg-4">
-                                <a href="/login"><i class="bi-person-circle"></i></a>
-                            </div>
+							<div class="header-misc-icon me-lg-4 profile-icon">									<% if (username) { %>
+								<!-- If user is logged in, show profile link -->
+								<div class="profile-wrapper">
+									<a href="/profile" class="profile-link">
+										<i class="bi-person-circle"></i>
+									</a>
+									<!-- Hover menu with username, profile link, and logout -->
+									<div class="profile-hover-menu">
+										<span class="profile-greeting">Hi <strong><%= username %></strong></span>
+										<ul>
+											<li><a href="/profile">Profile</a></li>
+                                            <li><a href="/wishlist">Wishlist</a></li>
+											<li><a href="/logout">Logout</a></li>
+										</ul>
+									</div>
+								</div>
+							<% } else { %>
+								<!-- If user is not logged in, redirect to login -->
+								<a href="/login" class="profile-link">
+									<i class="bi-person-circle"></i>
+								</a>
+							<% } %>
+						</div>
 
                             <!-- Cart Icon -->
                             <div id="top-cart" class="header-misc-icon me-lg-4">
@@ -119,7 +138,7 @@
                         <li><strong>Name:</strong> <%= orderDetails.username %></li>
                         <li><strong>Shipping Address:</strong> <%= orderDetails.address %></li>
                         <li><strong>Payment Method:</strong> <%= orderDetails.paymentMethod %></li>
-                        <li><strong>Total:</strong> $<%= orderDetails.total.toFixed(2) %></li>
+                        <li><strong>Total:</strong> $<%= prorderDetails.total.toFixed(2) %></li>
                     </ul>
                     <br>
                     <a href="/" class="button button-large">Continue Shopping</a>
@@ -148,7 +167,7 @@
                             <div class="widget widget_links">
                                 <h3 class="text-transform-none ls-0 border-bottom d-inline-block mb-5">Contact Us</h3>
                                 <ul>
-                                    <li class="mb-2"><a class="ls-1 text-light" href="mailto:noreply@canvas.com">noreply@canvas.com</a></li>
+                                    <li class="mb-2"><a class="ls-1 text-light" href="mailto:noreply@ficus.ecostore.com">noreply@ficus.ecostore.com</a></li>
                                     <li class="mb-2"><a class="ls-1 text-light" href="tel:+0011122233">0-111-222-33</a></li>
                                     <li><a class="ls-1 text-light" href="/login">Sign In/Register</a></li>
                                 </ul>

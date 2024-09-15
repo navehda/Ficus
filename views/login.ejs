@@ -55,10 +55,9 @@
 					<nav class="primary-menu top-primary-menu col-lg-5 order-last order-lg-first mobile-menu-off-canvas">
 
 						<ul class="menu-container">
-							<li class="menu-item current"><a class="menu-link" href="index"><div>Home</div></a></li>
+							<li class="menu-item current"><a class="menu-link" href="/"><div>Home</div></a></li>
 							<li class="menu-item"><a class="menu-link" href="shop"><div>Products</div></a></li>
-							<li class="menu-item"><a class="menu-link" href="faqs"><div>FAQs</div></a></li>
-							<li class="menu-item"><a class="menu-link" href="cart"><div>Cart</div></a></li>
+							<li class="menu-item"><a class="menu-link" href="contact"><div>Contact Us</div></a></li>
 							<li class="menu-item d-block d-lg-none"><a class="menu-link" href="contact"><div>Contact</div></a></li>
 						</ul>
 
@@ -87,11 +86,30 @@
 
 							 <!-- Top Account
 							============================================= -->
-							<div class="header-misc-icon me-lg-4">
-								<a href="login"><i class="bi-person-circle"></i></a>
-							</div><!-- top-Account end -->
-
-							<!-- Top Cart
+							<div class="header-misc-icon me-lg-4 profile-icon">									<% if (username) { %>
+								<!-- If user is logged in, show profile link -->
+								<div class="profile-wrapper">
+									<a href="/profile" class="profile-link">
+										<i class="bi-person-circle"></i>
+									</a>
+									<!-- Hover menu with username, profile link, and logout -->
+									<div class="profile-hover-menu">
+										<span class="profile-greeting">Hi <strong><%= username %></strong></span>
+										<ul>
+											<li><a href="/profile">Profile</a></li>
+											<li><a href="/wishlist">Wishlist</a></li>
+											<li><a href="/logout">Logout</a></li>
+										</ul>
+									</div>
+								</div>
+							<% } else { %>
+								<!-- If user is not logged in, redirect to login -->
+								<a href="/login" class="profile-link">
+									<i class="bi-person-circle"></i>
+								</a>
+							<% } %>
+						</div>
+					<!-- Top Cart
 							============================================= -->
 							<div id="top-cart" class="header-misc-icon me-lg-4">
 								<a href="#" id="top-cart-trigger"><i class="bi-basket"></i></a>
@@ -164,84 +182,6 @@
 							</button>
 						</div>
 
-						<!-- Primary Navigation
-						============================================= -->
-						<nav class="primary-menu main-primary-menu w-100 with-arrows">
-
-							<ul class="menu-container justify-content-between">
-								<li class="menu-item"><a class="menu-link" href="shop"><div>New Collections</div></a></li>
-								<li class="menu-item mega-menu mega-menu-small"><a class="menu-link" href="shop"><div>Shop for Skin</div></a>
-									<div class="mega-menu-content">
-										<div class="row g-0 align-items-stretch">
-											<a href="shop" class="col-lg-4 d-none d-lg-flex imagescale" style="background: linear-gradient(to bottom,rgba(255,255,255,0.001) 25%,var(--bs-danger) 100%), url('images/megamenu.jpg') center center / cover;">
-												<div class="bg-overlay">
-													<div class="bg-overlay-content justify-content-center align-items-end">
-														<div class="text-white op-1 border-bottom d-inline-block all-ts mb-2" data-hover-animate="op-1 scale-lg"  data-hover-animate-out="op-1" data-hover-parent=".bg-overlay">View Products</div>
-													</div>
-												</div>
-											</a>
-											<div class="sub-menu-container mega-menu-column col">
-												<div class="row d-md-flex p-md-4">
-													<div class="col-md-6">
-														<div class="menu-item mb-md-2">
-															<a href="#" class="menu-link">
-																<h4 class="mb-1">Online Orders</h4>
-																<p class="mb-0 fw-normal text-smaller text-black-50">Authoritatively negotiate multimedia based niches.</p>
-															</a>
-														</div>
-														<div class="menu-item mb-md-2">
-															<a href="#" class="menu-link">
-																<h4 class="mb-1">Premium Quality</h4>
-																<p class="mb-0 fw-normal text-smaller text-black-50">Rapidiously pontificate quality functionalities.</p>
-															</a>
-														</div>
-														<div class="menu-item">
-															<a href="#" class="menu-link">
-																<h4 class="mb-1">100% Organic</h4>
-																<p class="mb-0 fw-normal text-smaller text-black-50">Schemas without inexpensive through outsourcing.</p>
-															</a>
-														</div>
-													</div>
-													<div class="col-md-6">
-														<div class="menu-item mb-md-2">
-															<a href="#" class="menu-link">
-																<h4 class="mb-1">Reusable Products</h4>
-																<p class="mb-0 fw-normal text-smaller text-black-50">Compellingly promote holistic growth strategies.</p>
-															</a>
-														</div>
-														<div class="menu-item mb-md-2">
-															<a href="#" class="menu-link">
-																<h4 class="mb-1">100% Genuine</h4>
-																<p class="mb-0 fw-normal text-smaller text-black-50">Seamlessly reconceptualize extensive growth.</p>
-															</a>
-														</div>
-														<div class="menu-item">
-															<a href="#" class="menu-link">
-																<h4 class="mb-1">Unisex Products</h4>
-																<p class="mb-0 fw-normal text-smaller text-black-50">Open-source web-readiness. Enthusiastically under.</p>
-															</a>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</li>
-								<li class="menu-item"><a class="menu-link" href="shop"><div>Shop for Hair</div></a>
-									<ul class="sub-menu-container">
-										<li class="menu-item"><a class="menu-link" href="shop"><div>Most Popular</div></a></li>
-										<li class="menu-item"><a class="menu-link" href="shop"><div>Latest Items</div></a></li>
-										<li class="menu-item"><a class="menu-link" href="shop"><div>New Arrivals</div></a></li>
-										<li class="menu-item"><a class="menu-link" href="shop"><div>View All</div></a></li>
-									</ul>
-								</li>
-								<li class="menu-item"><a class="menu-link" href="shop"><div>Up to 40% Sale</div></a></li>
-								<li class="menu-item"><a class="menu-link" href="shop"><div>Accessories Items</div></a></li>
-								<li class="menu-item"><a class="menu-link" href="shop"><div>Our Farmhouse</div></a></li>
-								<li class="menu-item"><a class="menu-link" href="cart"><div>Contact</div></a></li>
-							</ul>
-
-						</nav><!-- #primary-menu end -->
 					</div>
 				</div>
 			</div>
@@ -341,7 +281,7 @@
 								<h3 class="text-transform-none ls-0 border-bottom d-inline-block mb-5">Contact Us</h3>
 
 								<ul>
-									<li class="mb-2"><a class="ls-1 text-light" href="mailto:noreply@canvas.com">noreply@canvas.com</a></li>
+									<li class="mb-2"><a class="ls-1 text-light" href="mailto:noreply@ficus.ecostore.com">noreply@ficus.ecostore.com</a></li>
 									<li class="mb-2"><a class="ls-1 text-light" href="tel:+0011122233">0-111-222-33</a></li>
 									<li><a class="ls-1 text-light" href="login">Sign In/Register</a></li>
 								</ul>
@@ -377,7 +317,7 @@
 					<div class="row col-mb-30">
 
 						<div class="col-md-6 text-center text-md-start">
-							Copyrights &copy; 2023 All Rights Reserved by Canvas Inc.
+							Copyrights &copy; 2023 All Rights Reserved by Ficus. Inc.
 						</div>
 
 						<div class="col-md-6 text-center text-md-end">

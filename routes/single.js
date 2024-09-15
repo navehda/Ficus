@@ -18,7 +18,7 @@ router.get('/:id', (req, res) => {
         console.log('Requested Product ID:', productId);  // Log the requested product ID
         console.log('Products:', products);  // Log all products
 
-        const product = products.find(p => p.id === productId); // Match with integer IDs
+        const product = products.find(p => p.id == productId); // Match with integer IDs
         console.log('Matched Product:', product);  // Log the matched product
 
         if (!product) {
